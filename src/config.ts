@@ -8,7 +8,7 @@ export const SKAPI_PROJECT_ID = '5GJ5SJePWQUiq0jvYr-2ZVgaOLUqOhnse3Hcl8M4d';
  * Anyone can post a public record, so the app only reads drills uploaded by these
  * accounts. Add the admin account's user_id (shown on the Account page) here.
  */
-export const ADMIN_USER_IDS: string[] = [];
+export const ADMIN_USER_IDS: string[] = ['a149c0de-50e1-705d-4ec6-ffb00db55464'];
 
 /** Skapi access group at or above which a signed-in user may open the Admin Studio. */
 export const ADMIN_ACCESS_GROUP = 90;
