@@ -2,6 +2,8 @@
 
 A training platform for argumentation, fallacy detection, cognitive-distortion filtering and syntactic craft. It's a static Preact + TypeScript app hosted on GitHub Pages. It works fully offline and logged out, with optional Skapi accounts for sync and bring-your-own-key OpenRouter for the AI-judged parts.
 
+**How it was built:** the code and seed content were written by an AI coding agent (Claude Code) from Richard’s written spec, with Richard steering and reviewing.
+
 ## What's in it
 
 | Area | What it does | Needs |
