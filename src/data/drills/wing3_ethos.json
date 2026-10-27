@@ -1,0 +1,306 @@
+[
+  {
+    "id": "w3_phronesis_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["ethos_phronesis"],
+    "difficulty_elo": 1200,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Phronesis", "modern": "Practical Wisdom" },
+    "prompt_instruction": "Click the sentence that shows practical wisdom: judgement about what to do in this situation, not just knowledge or passion.",
+    "passage_segments": [
+      { "id": "s1", "text": "I've read every study on four-day weeks published since 2015.", "role": "knowledge" },
+      { "id": "s2", "text": "I also ran a three-month trial with my own team last year.", "role": "experience" },
+      { "id": "s3", "text": "What I learned is that it works for project work but not for support desks, so I'd start with the product teams.", "role": "phronesis" },
+      { "id": "s4", "text": "I'm passionate about work–life balance.", "role": "virtue_claim" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "Phronesis is practical judgement applied to particulars. Sentence 3 turns knowledge (1) and experience (2) into a situation-specific recommendation. Sentence 4 asserts a value (arete) rather than wisdom.",
+    "explanation_modern": "Reading and doing aren't enough on their own. Sentence 3 shows you know when it works, when it doesn't, and where to start, and that's what makes people trust your call."
+  },
+  {
+    "id": "w3_disinterest_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["ethos_disinterest"],
+    "difficulty_elo": 1150,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Eunoia (Disinterest)", "modern": "The Reluctant Conclusion" },
+    "prompt_instruction": "Click the Reluctant Conclusion: the point where the speaker argues against their own interest.",
+    "passage_segments": [
+      { "id": "s1", "text": "I'd love to tell you the tool my team built should replace the old one.", "role": "acknowledged_interest" },
+      { "id": "s2", "text": "We spent eight months on it, and I'm proud of the work.", "role": "acknowledged_interest" },
+      { "id": "s3", "text": "But the data says the old one handles edge cases better, so I recommend we keep it for another year.", "role": "reluctant_conclusion" },
+      { "id": "s4", "text": "Our users deserve the more reliable option.", "role": "shared_value" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "By declaring an interest (1–2) and then reaching a conclusion against it (3), the speaker demonstrates eunoia (disinterested goodwill), which heightens credibility for the recommendation.",
+    "explanation_modern": "'I wanted the opposite answer, but here's what the data says.' Nothing builds trust faster than a conclusion that costs you something."
+  },
+  {
+    "id": "w3_virtue_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["ethos_virtue"],
+    "difficulty_elo": 1100,
+    "domain": "Classical Civic",
+    "register_tags": { "classical": "Arete", "modern": "Shared Values" },
+    "prompt_instruction": "The audience is a rural parish council. Click the sentence that builds ethos through shared values.",
+    "passage_segments": [
+      { "id": "s1", "text": "The broadband upgrade will cost the parish £40,000.", "role": "data_fact" },
+      { "id": "s2", "text": "Like most of you, I've farmed here my whole life, and I don't spend money I can't account for.", "role": "virtue" },
+      { "id": "s3", "text": "The upgrade means three local businesses can stay instead of moving into town.", "role": "data_fact" },
+      { "id": "s4", "text": "I'd ask you to approve it.", "role": "claim" }
+    ],
+    "correct_target_id": "s2",
+    "explanation_formal": "Sentence 2 aligns the speaker's character with the audience's values (thrift, rootedness), which is arete. It answers in advance the suspicion that the spending is careless.",
+    "explanation_modern": "'I'm one of you, and I'm careful with money' lands before the ask. The £40,000 now comes from someone the room trusts."
+  },
+  {
+    "id": "w3_tactical_flaw_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["concession_tactical_flaw"],
+    "difficulty_elo": 1150,
+    "domain": "Business",
+    "register_tags": { "classical": "Ethos of the Tactical Flaw", "modern": "The Tactical Flaw" },
+    "prompt_instruction": "Click the tactical flaw.",
+    "passage_segments": [
+      { "id": "s1", "text": "I'll be upfront: I'm hopeless with spreadsheets, and the formatting in this report shows it.", "role": "tactical_flaw" },
+      { "id": "s2", "text": "But I spent three weeks on site interviewing every shift supervisor.", "role": "credibility" },
+      { "id": "s3", "text": "Every one of them named the same bottleneck: the loading dock schedule.", "role": "data_fact" },
+      { "id": "s4", "text": "Fix that, and overtime costs drop.", "role": "claim" }
+    ],
+    "correct_target_id": "s1",
+    "follow_up_question": {
+      "question": "Why does it work?",
+      "options": [
+        { "id": "o1", "text": "Admitting a harmless weakness makes the claims that matter more believable.", "is_correct": true, "feedback": "Yes. Candour about something trivial buys credibility for the substance." },
+        { "id": "o2", "text": "It lowers expectations, so any result looks good.", "is_correct": false, "feedback": "That's sandbagging. The flaw here doesn't touch the findings." },
+        { "id": "o3", "text": "It's simply polite.", "is_correct": false, "feedback": "It's polite, but its job is strategic." },
+        { "id": "o4", "text": "It doesn't work. Never admit weakness.", "is_correct": false, "feedback": "Admitting a weakness unrelated to your core claim reliably raises trust." }
+      ]
+    },
+    "explanation_formal": "The tactical flaw confesses a weakness irrelevant to the argument's substance, which signals candour and disarms scrutiny of the parts that matter.",
+    "explanation_modern": "'My spreadsheets are ugly' is a cheap thing to admit. It makes 'I interviewed every supervisor' sound even more solid."
+  },
+  {
+    "id": "w3_prebuttal_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["concession_prebuttal"],
+    "difficulty_elo": 1150,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Procatalepsis", "modern": "Pre-emptive Buttressing" },
+    "prompt_instruction": "Click the sentence where the speaker raises an objection before anyone else can.",
+    "passage_segments": [
+      { "id": "s1", "text": "We should hold the planning week offsite at the converted barn.", "role": "claim" },
+      { "id": "s2", "text": "Now, some of you will say the barn is too far for people with childcare to arrange.", "role": "procatalepsis" },
+      { "id": "s3", "text": "So sessions will run from 10 to 3, with a minibus from the station.", "role": "answer" },
+      { "id": "s4", "text": "The quiet will let us finish in four days what takes two weeks in the office.", "role": "benefit" }
+    ],
+    "correct_target_id": "s2",
+    "explanation_formal": "Procatalepsis anticipates an objection (2) and answers it (3) before the opponent can raise it, which shows foresight (phronesis) and removes the objection's force.",
+    "explanation_modern": "Say their objection before they do and answer it. You look prepared, and they have nothing left to land."
+  },
+  {
+    "id": "w3_paradiastole_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["pathos_redefinition", "fallacy_bad_example", "tense_deliberative"],
+    "difficulty_elo": 1400,
+    "domain": "Business",
+    "register_tags": { "classical": "Paradiastole", "modern": "Reframing" },
+    "prompt_instruction": "Diagnose the CEO's move and choose the board member's reply.",
+    "passage_segments": [
+      { "id": "s1", "text": "Board member: “This acquisition is reckless.”", "role": "label" },
+      { "id": "s2", "text": "CEO: “It isn't reckless. It's bold.”", "role": "paradiastole" },
+      { "id": "s3", "text": "CEO: “Every company that leads its market took a risk like this once.”", "role": "support" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Figure",
+        "question": "What move does the CEO make in sentence 2?",
+        "options": [
+          { "id": "a", "text": "Paradiastole: recasting a vice as its neighbouring virtue", "is_correct": true, "feedback": "Yes. 'Reckless' becomes 'bold' with the same facts and a kinder name." },
+          { "id": "b", "text": "Litotes", "is_correct": false, "feedback": "No understatement by negation." },
+          { "id": "c", "text": "Procatalepsis", "is_correct": false, "feedback": "Nothing is anticipated. The objection has already been made." },
+          { "id": "d", "text": "Concede-and-Pivot", "is_correct": false, "feedback": "Nothing is conceded." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Fallacy",
+        "question": "What's wrong with sentence 3?",
+        "options": [
+          { "id": "a", "text": "It generalises from survivors and ignores firms that took similar risks and failed.", "is_correct": true, "feedback": "Right: a Bad Example (survivorship). The graveyard of bold failures is invisible." },
+          { "id": "b", "text": "It's a False Choice.", "is_correct": false, "feedback": "No options are restricted." },
+          { "id": "c", "text": "It's a Tautology.", "is_correct": false, "feedback": "It isn't circular, just badly sampled." },
+          { "id": "d", "text": "It's a Kafka Trap.", "is_correct": false, "feedback": "No denial is turned into evidence." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Counter-pivot",
+        "question": "Choose the board member's reply.",
+        "options": [
+          { "id": "a", "text": "No, it's reckless.", "is_correct": false, "feedback": "A label fight you can't win by repetition." },
+          { "id": "b", "text": "Bold or reckless, the question is the same: what's our downside if it fails, and can we cap it?", "is_correct": true, "feedback": "Refuses the naming contest and moves the stasis to policy and risk." },
+          { "id": "c", "text": "You always do this.", "is_correct": false, "feedback": "Ad hominem, and forensic." },
+          { "id": "d", "text": "Remember the 2019 acquisition?", "is_correct": false, "feedback": "Possibly relevant evidence, but on its own it reads as point-scoring about the past." }
+        ]
+      }
+    ],
+    "explanation_formal": "Paradiastole redescribes the act under a neighbouring virtue. Its support commits survivorship bias. The effective counter declines the definitional contest and moves to deliberative risk assessment.",
+    "explanation_modern": "Renaming the risk doesn't shrink it. Skip the word fight and ask the question either word leads to: how bad is the downside?"
+  },
+  {
+    "id": "w3_concede_pivot_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["concession_pivot", "tense_deliberative"],
+    "difficulty_elo": 1250,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Paromologia", "modern": "Concede-and-Pivot" },
+    "prompt_instruction": "Click the sentence where the speaker turns the concession into an argument for their own position.",
+    "passage_segments": [
+      { "id": "s1", "text": "You're right that the new rota is unpopular. I've heard the complaints too.", "role": "concession" },
+      { "id": "s2", "text": "And that unpopularity is exactly why we should fix the handover problems it exposed, rather than go back to a system that hid them.", "role": "pivot" },
+      { "id": "s3", "text": "Missed handovers have dropped from twelve a month to three.", "role": "data_fact" },
+      { "id": "s4", "text": "Give it until March. If the numbers slip, we revisit.", "role": "proposal" }
+    ],
+    "correct_target_id": "s2",
+    "explanation_formal": "Paromologia: the opponent's point is granted (1) and then turned to the speaker's advantage (2). The concession becomes a premise for the speaker's conclusion.",
+    "explanation_modern": "'Yes, and that's why…' The complaint becomes your evidence. Then the speaker offers a fair test (sentence 4) so the concession doesn't feel like a trick."
+  },
+  {
+    "id": "w3_commonplace_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["pathos_commonplace"],
+    "difficulty_elo": 1150,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Topos Koinos", "modern": "The Shared Belief" },
+    "prompt_instruction": "The audience is engineers who dislike writing documentation. Click the commonplace the speaker builds on.",
+    "passage_segments": [
+      { "id": "s1", "text": "Most of us got into engineering because we hate doing the same work twice.", "role": "commonplace" },
+      { "id": "s2", "text": "Undocumented code means someone has to rediscover how it works every single time.", "role": "application" },
+      { "id": "s3", "text": "So writing it down once is the lazy engineer's best friend.", "role": "reframe" },
+      { "id": "s4", "text": "I'm proposing a thirty-minute documentation slot at the end of every ticket.", "role": "proposal" }
+    ],
+    "correct_target_id": "s1",
+    "explanation_formal": "The speaker starts from a belief the audience already holds (aversion to repetition) and argues from it, rather than attacking their aversion to documentation directly.",
+    "explanation_modern": "Don't fight what they believe. Use it. 'You hate repeating work' turns documentation from a chore into the lazy option."
+  },
+  {
+    "id": "w3_cooling_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["pathos_cooling", "tense_deliberative"],
+    "difficulty_elo": 1150,
+    "domain": "Classical Civic",
+    "register_tags": { "classical": "Lowering Pathos", "modern": "Cooling the Temperature" },
+    "prompt_instruction": "You're the councillor. Read the room and respond.",
+    "passage_segments": [
+      { "id": "s1", "text": "Resident: “You people at the council don't care if our kids get run over!", "role": "accusation" },
+      { "id": "s2", "text": "Three near-misses outside the school this term, and you've done NOTHING!”", "role": "grievance" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Read",
+        "question": "Where is the resident?",
+        "options": [
+          { "id": "a", "text": "Forensic tense, high anger", "is_correct": true, "feedback": "Yes: blame for past inaction, delivered hot." },
+          { "id": "b", "text": "Deliberative, calm", "is_correct": false, "feedback": "No proposal, and no calm." },
+          { "id": "c", "text": "Demonstrative praise", "is_correct": false, "feedback": "Very much not praise." },
+          { "id": "d", "text": "Conjecture: disputing the facts", "is_correct": false, "feedback": "The near-misses are presented as fact, not in dispute." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Cool",
+        "question": "Choose your first sentence.",
+        "options": [
+          { "id": "a", "text": "Please calm down.", "is_correct": false, "feedback": "Telling people to calm down reliably does the opposite." },
+          { "id": "b", "text": "Three near-misses outside a school is frightening, and you're right to be angry about it.", "is_correct": true, "feedback": "It validates the emotion and the fact, and the temperature drops." },
+          { "id": "c", "text": "Actually, the council has a strong safety record.", "is_correct": false, "feedback": "Defensive, and it reads as not listening." },
+          { "id": "d", "text": "Statistically, near-misses are fairly common.", "is_correct": false, "feedback": "Cold logos to a hot room. Worse than silence." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Pivot",
+        "question": "Choose your next sentence.",
+        "options": [
+          { "id": "a", "text": "Here's what I can do this week: commission a speed survey and bring the crossing proposal to the committee on the 14th.", "is_correct": true, "feedback": "Concrete, near-term and deliberative. It gives the anger somewhere to go." },
+          { "id": "b", "text": "The previous councillor should have dealt with this.", "is_correct": false, "feedback": "Back into blame." },
+          { "id": "c", "text": "We all want safe streets.", "is_correct": false, "feedback": "A demonstrative platitude with no action." },
+          { "id": "d", "text": "I'll look into it.", "is_correct": false, "feedback": "Vague, and exactly what they've heard before." }
+        ]
+      }
+    ],
+    "explanation_formal": "Pathos must be lowered before logos can function: acknowledge the emotion's legitimacy, then redirect from forensic grievance to a specific deliberative commitment.",
+    "explanation_modern": "First show you've heard them, then give them something real. Facts before feelings are acknowledged just bounce off."
+  },
+  {
+    "id": "w3_three_pillars_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["ethos_phronesis", "ethos_disinterest", "ethos_virtue"],
+    "difficulty_elo": 1100,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Phronesis, Eunoia, Arete", "modern": "Wisdom, Disinterest, Values" },
+    "prompt_instruction": "Three openings from a migration planning meeting. Name the pillar of ethos each one leans on.",
+    "passage_segments": [
+      { "id": "s1", "text": "A: “I've led three of these migrations, and the one that failed taught me to freeze schema changes a month out.”", "role": "phronesis" },
+      { "id": "s2", "text": "B: “Honestly, my team would gain most from option B, but option A is better for the company, so I'm backing A.”", "role": "disinterest" },
+      { "id": "s3", "text": "C: “Like all of you, I believe our customers' data isn't ours to gamble with.”", "role": "virtue" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Speaker A",
+        "question": "Speaker A leans on…",
+        "options": [
+          { "id": "a", "text": "Practical wisdom (phronesis)", "is_correct": true, "feedback": "Experience turned into a concrete rule of judgement." },
+          { "id": "b", "text": "Disinterest (eunoia)", "is_correct": false, "feedback": "Nothing is given up." },
+          { "id": "c", "text": "Shared values (arete)", "is_correct": false, "feedback": "It's about know-how, not values." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Speaker B",
+        "question": "Speaker B leans on…",
+        "options": [
+          { "id": "a", "text": "Practical wisdom (phronesis)", "is_correct": false, "feedback": "No situational expertise is shown." },
+          { "id": "b", "text": "Disinterest (eunoia)", "is_correct": true, "feedback": "A reluctant conclusion against their own team's interest." },
+          { "id": "c", "text": "Shared values (arete)", "is_correct": false, "feedback": "Close, but the tell is the sacrifice." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Speaker C",
+        "question": "Speaker C leans on…",
+        "options": [
+          { "id": "a", "text": "Practical wisdom (phronesis)", "is_correct": false, "feedback": "No expertise is claimed." },
+          { "id": "b", "text": "Disinterest (eunoia)", "is_correct": false, "feedback": "No interest is sacrificed." },
+          { "id": "c", "text": "Shared values (arete)", "is_correct": true, "feedback": "'Like all of you, I believe…' aligns the speaker with the room's values." }
+        ]
+      }
+    ],
+    "explanation_formal": "Aristotle's three sources of ethos (Rhetoric II.1): phronesis (practical wisdom), arete (virtue) and eunoia (goodwill, which Heinrichs recasts as disinterest).",
+    "explanation_modern": "Know-how (A), 'this costs me, but…' (B), 'I'm one of you' (C). Strong speakers use all three, and the best pick the one this audience doubts most."
+  },
+  {
+    "id": "w3_paradiastole_02",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["pathos_redefinition"],
+    "difficulty_elo": 1200,
+    "domain": "Modern Policy",
+    "register_tags": { "classical": "Paradiastole", "modern": "Reframing" },
+    "prompt_instruction": "Click the reframe.",
+    "passage_segments": [
+      { "id": "s1", "text": "The council calls the new parking charges a “congestion measure”.", "role": "opponent_frame" },
+      { "id": "s2", "text": "Let's call them what they are: a tax on people who can't afford to live in the centre.", "role": "paradiastole" },
+      { "id": "s3", "text": "Shift workers at the hospital have no bus that runs before 6 a.m.", "role": "data_fact" },
+      { "id": "s4", "text": "At the very least, I'd ask the council to exempt hospital staff.", "role": "proposal" }
+    ],
+    "correct_target_id": "s2",
+    "explanation_formal": "Paradiastole redescribes the same measure under a less favourable heading ('tax' rather than 'congestion measure'). The redescription then frames the data and the proposal that follow.",
+    "explanation_modern": "Whoever names the thing frames the fight. 'Congestion measure' sounds technical; 'a tax on the less well-off' sounds unfair. Notice it, and use it with care."
+  }
+]

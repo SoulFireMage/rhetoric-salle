@@ -1,0 +1,398 @@
+[
+  {
+    "id": "w4_periodic_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["syntax_periodic"],
+    "difficulty_elo": 1050,
+    "domain": "Modern Policy",
+    "register_tags": { "classical": "Periodic Sentence", "modern": "The Suspense Sentence" },
+    "prompt_instruction": "Build a periodic sentence: hold the main clause back until the very end. One block is a decoy.",
+    "target_structure": "Subordinate build-up → Main clause last",
+    "blocks": [
+      { "id": "b1", "text": "After three inspections," },
+      { "id": "b2", "text": "two independent reports" },
+      { "id": "b3", "text": "and a winter of rising repair bills," },
+      { "id": "b4", "text": "the conclusion is unavoidable:" },
+      { "id": "b5", "text": "the bridge must close." },
+      { "id": "b6", "text": "which is sad," }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4", "b5"]],
+    "time_limit_s": 60,
+    "explanation_formal": "A periodic sentence suspends grammatical and semantic completion until its close. The decoy adds a loose, deflating aside that would break the suspense.",
+    "explanation_modern": "Pile up the reasons, then drop the verdict last: 'the bridge must close'. The reader leans in and the ending lands."
+  },
+  {
+    "id": "w4_cumulative_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["syntax_cumulative"],
+    "difficulty_elo": 950,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Loose (Cumulative) Sentence", "modern": "The Add-On Sentence" },
+    "prompt_instruction": "Build a cumulative sentence: main clause first, with detail accumulating after it.",
+    "target_structure": "Main clause → Modifier → Modifier → Final modifier",
+    "blocks": [
+      { "id": "b1", "text": "The team shipped the release," },
+      { "id": "b2", "text": "three days late," },
+      { "id": "b3", "text": "two engineers short," },
+      { "id": "b4", "text": "and with every test passing." }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4"], ["b1", "b3", "b2", "b4"]],
+    "time_limit_s": 45,
+    "explanation_formal": "The loose sentence completes its main clause at once, then elaborates through free modifiers. The order of the middle modifiers is flexible. The 'and' member closes the series.",
+    "explanation_modern": "Say the main thing first ('we shipped'), then stack the details. It's the natural rhythm of a report, and the last add-on is where the punch goes."
+  },
+  {
+    "id": "w4_chiasmus_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["figure_chiasmus", "syntax_antithesis"],
+    "difficulty_elo": 1150,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Chiasmus", "modern": "The Criss-Cross" },
+    "prompt_instruction": "Arrange the blocks into a chiasmus (A–B / B–A) arguing that process should serve people.",
+    "target_structure": "A B ; B′ A′",
+    "blocks": [
+      { "id": "b1", "text": "Process" },
+      { "id": "b2", "text": "should serve" },
+      { "id": "b3", "text": "people;" },
+      { "id": "b4", "text": "people" },
+      { "id": "b5", "text": "should never serve" },
+      { "id": "b6", "text": "process." }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4", "b5", "b6"]],
+    "time_limit_s": 60,
+    "explanation_formal": "Chiasmus inverts the order of terms in the second member (process–people / people–process), which here also sharpens an antithesis between 'should' and 'should never'.",
+    "explanation_modern": "Swap the two nouns and flip the verb: 'Process should serve people; people should never serve process.' The criss-cross makes it stick."
+  },
+  {
+    "id": "w4_antithesis_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["syntax_antithesis"],
+    "difficulty_elo": 1050,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Antithesis", "modern": "The Balanced Contrast" },
+    "prompt_instruction": "Build a balanced antithesis about technical debt: two parallel halves in contrast. One block is a decoy.",
+    "target_structure": "Subject–Verb–Object–Time ; Subject–Verb–Object–Time",
+    "blocks": [
+      { "id": "b1", "text": "The shortcut" },
+      { "id": "b2", "text": "saves us a day" },
+      { "id": "b3", "text": "this week;" },
+      { "id": "b4", "text": "the rewrite" },
+      { "id": "b5", "text": "costs us a month" },
+      { "id": "b6", "text": "next year." },
+      { "id": "b7", "text": "probably," }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4", "b5", "b6"]],
+    "time_limit_s": 60,
+    "explanation_formal": "Each member mirrors the other's grammar while the content opposes it: shortcut/rewrite, saves/costs, day/month, this week/next year. A hedge would unbalance the parallel.",
+    "explanation_modern": "Same shape, opposite meaning. The parallel does the arguing for you. And 'probably' is Coyness Index: leave it out."
+  },
+  {
+    "id": "w4_tricolon_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["syntax_tricolon", "figure_asyndeton"],
+    "difficulty_elo": 1100,
+    "domain": "Classical Civic",
+    "register_tags": { "classical": "Tricolon Crescens", "modern": "The Rising Three" },
+    "prompt_instruction": "Build a rising tricolon: three members, growing in length and force, with the biggest last.",
+    "target_structure": "Stem → Short member → Short member → Longest member",
+    "blocks": [
+      { "id": "b0", "text": "This budget will protect" },
+      { "id": "b1", "text": "the school," },
+      { "id": "b2", "text": "the hospital," },
+      { "id": "b3", "text": "every street where a child walks home after dark." }
+    ],
+    "solutions": [["b0", "b1", "b2", "b3"], ["b0", "b2", "b1", "b3"]],
+    "time_limit_s": 45,
+    "explanation_formal": "Tricolon crescens: three parallel cola of increasing magnitude. Here it is also asyndetic (no 'and'), which quickens the rhythm before the long final member.",
+    "explanation_modern": "Two short beats, then a long one that lands: school, hospital, every street. Put the biggest, most vivid item last."
+  },
+  {
+    "id": "w4_anaphora_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["figure_anaphora", "figure_asyndeton"],
+    "difficulty_elo": 1050,
+    "domain": "Science & Medicine",
+    "register_tags": { "classical": "Anaphora", "modern": "The Drumbeat" },
+    "prompt_instruction": "Click the sentence that uses anaphora.",
+    "passage_segments": [
+      { "id": "s1", "text": "The report is long, and parts of it are dull.", "role": "plain" },
+      { "id": "s2", "text": "We heard from the nurses; we heard from the porters; we heard from the patients nobody usually asks.", "role": "anaphora" },
+      { "id": "s3", "text": "Their message was the same, and it was urgent.", "role": "plain" },
+      { "id": "s4", "text": "Staff, beds, time: all three are short.", "role": "asyndeton" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which figure does sentence 4 use?",
+      "options": [
+        { "id": "o1", "text": "Asyndeton: a list without conjunctions", "is_correct": true, "feedback": "Yes: 'Staff, beds, time', with no 'and'." },
+        { "id": "o2", "text": "Polysyndeton", "is_correct": false, "feedback": "That's the opposite, with extra conjunctions." },
+        { "id": "o3", "text": "Chiasmus", "is_correct": false, "feedback": "No reversal of terms." },
+        { "id": "o4", "text": "Litotes", "is_correct": false, "feedback": "No understatement by negation." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 repeats 'we heard from' at the head of successive clauses (anaphora) in a rising tricolon. Sentence 4 is asyndetic.",
+    "explanation_modern": "'We heard from… we heard from… we heard from…' is the drumbeat. The repetition makes the list feel thorough and the last item hit hardest."
+  },
+  {
+    "id": "w4_epistrophe_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["figure_epistrophe"],
+    "difficulty_elo": 1100,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Epistrophe", "modern": "The Echo Ending" },
+    "prompt_instruction": "Build a sentence using epistrophe, where every clause ends with the same word. Two blocks are decoys.",
+    "target_structure": "… X, … X, and … X.",
+    "blocks": [
+      { "id": "b1", "text": "We designed it together," },
+      { "id": "b2", "text": "we argued about it together," },
+      { "id": "b3", "text": "and we will ship it together." },
+      { "id": "b4", "text": "we argued about it for weeks," },
+      { "id": "b5", "text": "and we will ship it on Friday." }
+    ],
+    "solutions": [["b1", "b2", "b3"]],
+    "time_limit_s": 45,
+    "explanation_formal": "Epistrophe repeats the terminal word of successive clauses ('together'). The decoys keep the syntax but break the repeated ending.",
+    "explanation_modern": "End every clause on the same word and that word becomes the message. Here it's 'together'."
+  },
+  {
+    "id": "w4_anadiplosis_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["figure_anadiplosis", "fallacy_wrong_ending"],
+    "difficulty_elo": 1100,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Anadiplosis", "modern": "The Relay" },
+    "prompt_instruction": "Build a chain using anadiplosis, where each clause starts with the word the last one ended on.",
+    "target_structure": "…A; A…B; B…C; C…D",
+    "blocks": [
+      { "id": "b1", "text": "Unclear requirements breed rework;" },
+      { "id": "b2", "text": "rework breeds delay;" },
+      { "id": "b3", "text": "delay breeds shortcuts;" },
+      { "id": "b4", "text": "and shortcuts breed bugs." }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4"]],
+    "time_limit_s": 45,
+    "explanation_formal": "Anadiplosis (in an extended chain, gradatio or climax) picks up the last term of each clause to begin the next. Note that the same form can carry an unearned slippery slope if each link is merely asserted.",
+    "explanation_modern": "Each clause hands its last word to the next, like a relay. It feels inevitable, which is also why it's a favourite shape for a slippery-slope argument."
+  },
+  {
+    "id": "w4_litotes_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["figure_litotes"],
+    "difficulty_elo": 1000,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Litotes", "modern": "The Double-Negative Understatement" },
+    "prompt_instruction": "Click the sentence that uses litotes.",
+    "passage_segments": [
+      { "id": "s1", "text": "The migration was not without its problems.", "role": "litotes" },
+      { "id": "s2", "text": "Two services went down for an hour.", "role": "data_fact" },
+      { "id": "s3", "text": "The rollback plan, thankfully, worked.", "role": "data_fact" },
+      { "id": "s4", "text": "Lessons, fixes, a retro next week.", "role": "asyndeton" }
+    ],
+    "correct_target_id": "s1",
+    "follow_up_question": {
+      "question": "What does the litotes do here?",
+      "options": [
+        { "id": "o1", "text": "It admits the problems while understating them, so the speaker sounds measured.", "is_correct": true, "feedback": "Yes. It's candid and calm at once, and dry, a useful register for bad news." },
+        { "id": "o2", "text": "It denies there were problems.", "is_correct": false, "feedback": "'Not without' affirms them." },
+        { "id": "o3", "text": "It exaggerates the problems.", "is_correct": false, "feedback": "It does the opposite." },
+        { "id": "o4", "text": "It's a grammatical error.", "is_correct": false, "feedback": "It's a deliberate figure, as old as Homer." }
+      ]
+    },
+    "explanation_formal": "Litotes affirms by negating the contrary ('not without problems' = 'with problems'), typically for understatement or irony.",
+    "explanation_modern": "'Not without its problems' means 'it had problems', said with a raised eyebrow. It owns the bad news without drama."
+  },
+  {
+    "id": "w4_polysyndeton_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["figure_polysyndeton"],
+    "difficulty_elo": 1000,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Polysyndeton", "modern": "The Pile-Up" },
+    "prompt_instruction": "Click the sentence that uses polysyndeton.",
+    "passage_segments": [
+      { "id": "s1", "text": "The night before launch we fixed the login and the payments and the search and the emails and the one button nobody had tested.", "role": "polysyndeton" },
+      { "id": "s2", "text": "By morning, it worked.", "role": "plain" },
+      { "id": "s3", "text": "Barely.", "role": "fragment" },
+      { "id": "s4", "text": "Then the traffic arrived.", "role": "plain" }
+    ],
+    "correct_target_id": "s1",
+    "follow_up_question": {
+      "question": "What effect does the repeated “and” create?",
+      "options": [
+        { "id": "o1", "text": "The list feels endless and exhausting, like the night itself.", "is_correct": true, "feedback": "Yes. The form enacts the content." },
+        { "id": "o2", "text": "It speeds the list up.", "is_correct": false, "feedback": "That's asyndeton. Polysyndeton slows and weighs." },
+        { "id": "o3", "text": "It makes the items seem less important.", "is_correct": false, "feedback": "It gives each item weight." },
+        { "id": "o4", "text": "No effect. It's just clumsy.", "is_correct": false, "feedback": "Used deliberately, it's a strong rhythmic device." }
+      ]
+    },
+    "explanation_formal": "Polysyndeton multiplies conjunctions to give each member weight and to slow the rhythm. The short sentences that follow (2–4) supply contrast.",
+    "explanation_modern": "'And… and… and…' makes you feel the slog. Then three short sentences snap it shut. Long, then short, then shorter is rhythm doing argument's work."
+  },
+  {
+    "id": "w4_yawn_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["style_yawn_index"],
+    "difficulty_elo": 950,
+    "domain": "Business",
+    "register_tags": { "classical": "Pleonasm & Nominalisation", "modern": "The Yawn Index" },
+    "prompt_instruction": "Click the sentence with the highest Yawn Index.",
+    "passage_segments": [
+      { "id": "s1", "text": "It is important to note that, at this point in time, the implementation of the new process is something that is currently under consideration.", "role": "yawn" },
+      { "id": "s2", "text": "Three teams have tried it already.", "role": "plain" },
+      { "id": "s3", "text": "Two liked it; one didn't.", "role": "antithesis" },
+      { "id": "s4", "text": "We'll decide by Friday.", "role": "plain" }
+    ],
+    "correct_target_id": "s1",
+    "follow_up_question": {
+      "question": "Choose the best rewrite of sentence 1.",
+      "options": [
+        { "id": "o1", "text": "We're considering the new process.", "is_correct": true, "feedback": "Same content in five words." },
+        { "id": "o2", "text": "Currently, the new process implementation is under active consideration at this time.", "is_correct": false, "feedback": "Still buried under nominalisation and redundancy." },
+        { "id": "o3", "text": "It should be noted we are considering it.", "is_correct": false, "feedback": "Throat-clearing survives." },
+        { "id": "o4", "text": "The process is new.", "is_correct": false, "feedback": "Shorter, but it lost the meaning." }
+      ]
+    },
+    "explanation_formal": "Sentence 1 combines throat-clearing ('It is important to note'), pleonasm ('at this point in time … currently') and nominalisation ('the implementation of … is something that is under consideration').",
+    "explanation_modern": "Twenty-four words to say 'we're considering it'. Cut the preamble, turn the nouns back into verbs, and say it."
+  },
+  {
+    "id": "w4_coyness_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["style_coyness_index", "toulmin_qualifier_rebuttal"],
+    "difficulty_elo": 1000,
+    "domain": "Business",
+    "register_tags": { "classical": "Excessive Qualification", "modern": "The Coyness Index" },
+    "prompt_instruction": "Click the sentence with the highest Coyness Index.",
+    "passage_segments": [
+      { "id": "s1", "text": "I sort of think that maybe we could possibly consider perhaps raising prices a little.", "role": "coyness" },
+      { "id": "s2", "text": "Our costs rose 11% this year.", "role": "data_fact" },
+      { "id": "s3", "text": "Our three nearest competitors raised prices last spring.", "role": "data_fact" },
+      { "id": "s4", "text": "We should raise prices by 6% in January.", "role": "claim" }
+    ],
+    "correct_target_id": "s1",
+    "follow_up_question": {
+      "question": "Which of these hedges is legitimate, a calibrated qualifier rather than coyness?",
+      "options": [
+        { "id": "o1", "text": "Costs will probably keep rising next year, given the energy contracts we've signed.", "is_correct": true, "feedback": "Yes. 'Probably' is backed by a reason. That's a qualifier, not a flinch." },
+        { "id": "o2", "text": "I kind of feel like costs might rise, maybe.", "is_correct": false, "feedback": "Three hedges and no reason." },
+        { "id": "o3", "text": "Arguably, costs could be said to be rising, to some extent.", "is_correct": false, "feedback": "Hedging the hedges." },
+        { "id": "o4", "text": "Costs will definitely double.", "is_correct": false, "feedback": "Over-corrected into overclaiming." }
+      ]
+    },
+    "explanation_formal": "Sentence 1 stacks five hedges on one claim, which signals timidity rather than calibrated uncertainty. A legitimate qualifier states a degree of confidence and its grounds.",
+    "explanation_modern": "Hedge when you're unsure, and say why. Don't hedge because you're scared. Sentence 4 says the same thing with spine."
+  },
+  {
+    "id": "w4_periodic_02",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["syntax_periodic", "syntax_tricolon", "figure_anaphora"],
+    "difficulty_elo": 1250,
+    "domain": "Business",
+    "register_tags": { "classical": "Periodic Sentence with Tricolon", "modern": "Suspense in Threes" },
+    "prompt_instruction": "Build a periodic sentence: three conditions first, then the main clause and its reason. One block is a decoy.",
+    "target_structure": "If… if… or if… → Main clause → Reason",
+    "blocks": [
+      { "id": "b1", "text": "If the vendor misses March," },
+      { "id": "b2", "text": "if the regulator rejects our filing," },
+      { "id": "b3", "text": "or if the pilot customers walk away," },
+      { "id": "b4", "text": "we will still have a business:" },
+      { "id": "b5", "text": "the old system is still running." },
+      { "id": "b6", "text": "and we should all panic," }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4", "b5"]],
+    "time_limit_s": 75,
+    "explanation_formal": "Three anaphoric conditional clauses form a tricolon that suspends the main clause. The resolution is reassurance, and the colon introduces its ground.",
+    "explanation_modern": "Stack the fears, 'if… if… or if…', then knock them all down at once. Suspense makes the reassurance land."
+  },
+  {
+    "id": "w4_metaphor_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["figure_metaphor"],
+    "difficulty_elo": 1150,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Mixed Metaphor (Catachresis)", "modern": "The Picture Phrase, Garbled" },
+    "prompt_instruction": "Click the sentence with a mixed metaphor.",
+    "passage_segments": [
+      { "id": "s1", "text": "This project has been a marathon, not a sprint.", "role": "metaphor" },
+      { "id": "s2", "text": "We've hit some turbulence, but we'll iron it out once we get the ball rolling downstream.", "role": "mixed_metaphor" },
+      { "id": "s3", "text": "The client is happy with the prototype.", "role": "plain" },
+      { "id": "s4", "text": "Let's keep going.", "role": "plain" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Choose the cleanest fix.",
+      "options": [
+        { "id": "o1", "text": "We've hit some turbulence, but we'll land this safely.", "is_correct": true, "feedback": "One image (flight), carried through." },
+        { "id": "o2", "text": "We've hit some turbulence, but we'll iron it out.", "is_correct": false, "feedback": "Still flight plus laundry." },
+        { "id": "o3", "text": "We've hit some turbulence downstream.", "is_correct": false, "feedback": "Flight plus river." },
+        { "id": "o4", "text": "We'll get the ball ironed out.", "is_correct": false, "feedback": "Worse." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 combines four incompatible vehicles (flight, ironing, ball, river), so no single image survives. Sentence 1 is a conventional metaphor used cleanly.",
+    "explanation_modern": "Turbulence, ironing, a ball and a river all in one sentence. Pick one picture and stay in it."
+  },
+  {
+    "id": "w4_asyndeton_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["figure_asyndeton", "syntax_tricolon"],
+    "difficulty_elo": 900,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Asyndeton", "modern": "The Rapid-Fire List" },
+    "prompt_instruction": "Build a rapid asyndetic tricolon with no conjunctions. Two blocks are decoys.",
+    "target_structure": "Clause, clause, clause. (No “and”)",
+    "blocks": [
+      { "id": "b1", "text": "We planned," },
+      { "id": "b2", "text": "we tested," },
+      { "id": "b3", "text": "we shipped." },
+      { "id": "b4", "text": "and then" },
+      { "id": "b5", "text": "and" }
+    ],
+    "solutions": [["b1", "b2", "b3"]],
+    "time_limit_s": 30,
+    "explanation_formal": "Asyndeton omits connectives between coordinate clauses, which gives speed and finality (compare 'veni, vidi, vici').",
+    "explanation_modern": "Three beats, no 'and'. It sounds decisive because it doesn't stop for breath."
+  },
+  {
+    "id": "w4_chiasmus_02",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["figure_chiasmus", "syntax_antithesis"],
+    "difficulty_elo": 1200,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Chiasmus vs Antithesis", "modern": "Criss-Cross vs Balanced Contrast" },
+    "prompt_instruction": "Click the chiasmus.",
+    "passage_segments": [
+      { "id": "s1", "text": "We were promised speed; we were given delay.", "role": "antithesis" },
+      { "id": "s2", "text": "We built the system to serve its users, and the users ended up serving the system.", "role": "chiasmus" },
+      { "id": "s3", "text": "Faster, cheaper, simpler: the brochure promised all three.", "role": "tricolon" },
+      { "id": "s4", "text": "It is not a bad system.", "role": "litotes" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which figure is sentence 1?",
+      "options": [
+        { "id": "o1", "text": "Antithesis", "is_correct": true, "feedback": "Parallel form with opposed content (speed and delay), and no reversal of terms." },
+        { "id": "o2", "text": "Chiasmus", "is_correct": false, "feedback": "No terms swap places. The shape runs parallel, not criss-cross." },
+        { "id": "o3", "text": "Litotes", "is_correct": false, "feedback": "That's sentence 4." },
+        { "id": "o4", "text": "Polysyndeton", "is_correct": false, "feedback": "No piled-up conjunctions." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 reverses its terms (system–users / users–system), which is chiasmus. Sentence 1 sets opposed ideas in parallel without inversion, which is antithesis.",
+    "explanation_modern": "Antithesis runs parallel: A versus B. Chiasmus criss-crosses: A–B then B–A. Sentence 2 swaps system and users, and that swap is the sting."
+  }
+]

@@ -1,0 +1,531 @@
+[
+  {
+    "id": "w1_warrant_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["toulmin_warrant", "toulmin_claim_data"],
+    "difficulty_elo": 1100,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Warrant", "modern": "The Hidden Bridge" },
+    "prompt_instruction": "Click the sentence that states the warrant: the general rule that bridges the data to the claim.",
+    "passage_segments": [
+      { "id": "s1", "text": "Priya has shipped every release on time for two years.", "role": "data_fact" },
+      { "id": "s2", "text": "She should lead the migration project.", "role": "claim" },
+      { "id": "s3", "text": "Anyone who reliably hits their own deadlines will handle a cross-team project well.", "role": "warrant" },
+      { "id": "s4", "text": "The board meets on Thursday to confirm the appointment.", "role": "context" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "Where is this warrant weakest?",
+      "options": [
+        { "id": "o1", "text": "Shipping your own work on time doesn't show you can coordinate other teams.", "is_correct": true, "feedback": "Yes. The rule leaps from individual reliability to cross-team leadership, which is a different skill." },
+        { "id": "o2", "text": "Two years isn't a long enough track record.", "is_correct": false, "feedback": "That challenges the data, not the bridge rule." },
+        { "id": "o3", "text": "Priya might not want the job.", "is_correct": false, "feedback": "Possibly true, but it doesn't touch the argument's logic." },
+        { "id": "o4", "text": "The board might not meet on Thursday.", "is_correct": false, "feedback": "Context, not argument." }
+      ]
+    },
+    "explanation_formal": "Sentence 1 is the Data, sentence 2 the Claim, and sentence 3 the Warrant, the general rule licensing the step from one to the other. Sentence 4 is circumstantial context.",
+    "explanation_modern": "Fact: she's always on time. Claim: she should lead. Bridge: punctual people make good project leads. The bridge is where to aim, because punctuality and leadership aren't the same thing."
+  },
+  {
+    "id": "w1_enthymeme_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["enthymeme", "toulmin_warrant"],
+    "difficulty_elo": 1250,
+    "domain": "Local Policy",
+    "register_tags": { "classical": "Enthymeme", "modern": "The Silent Premise" },
+    "prompt_instruction": "This argument skips a step. Click the sentence whose conclusion depends most on an unstated premise.",
+    "passage_segments": [
+      { "id": "s1", "text": "The new cycle lane on Mill Road has cut car traffic by a fifth.", "role": "data_fact" },
+      { "id": "s2", "text": "So the council should build cycle lanes on every arterial road in the city.", "role": "claim", "note": "Rests on the unstated premise that Mill Road's result generalises." },
+      { "id": "s3", "text": "Residents on Mill Road report that the street is quieter.", "role": "data_fact" },
+      { "id": "s4", "text": "Shopkeepers there were sceptical at first.", "role": "context" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which premise is silently assumed?",
+      "options": [
+        { "id": "o1", "text": "What worked on Mill Road will work about as well on every arterial road.", "is_correct": true, "feedback": "Right. The jump from one road to all of them is the silent premise doing the heavy lifting." },
+        { "id": "o2", "text": "Cycling is healthier than driving.", "is_correct": false, "feedback": "The argument never relies on health. It's a plausible belief, but not the missing step." },
+        { "id": "o3", "text": "Every resident of the city owns a bicycle.", "is_correct": false, "feedback": "Far stronger than the argument needs, so it isn't the hidden premise." },
+        { "id": "o4", "text": "Shopkeepers' opinions don't matter.", "is_correct": false, "feedback": "Sentence 4 is context. The conclusion doesn't depend on dismissing anyone." }
+      ]
+    },
+    "explanation_formal": "An enthymeme: from a single case (Mill Road) to a universal policy. The suppressed major premise, roughly 'interventions that succeed on one road succeed on all similar roads', is where the argument can be challenged.",
+    "explanation_modern": "One success story, then 'do it everywhere'. The silent premise is that every road is like Mill Road. Say it out loud and you can test it."
+  },
+  {
+    "id": "w1_tense_shift_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["tense_deliberative", "tense_forensic"],
+    "difficulty_elo": 1000,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Forensic → Deliberative Turn", "modern": "From Blame to Choice" },
+    "prompt_instruction": "Click the sentence where the speaker shifts from Forensic (past blame) to Deliberative (future choice).",
+    "passage_segments": [
+      { "id": "s1", "text": "Last quarter's outage happened because nobody reviewed the config change.", "role": "forensic_account", "tense": "forensic" },
+      { "id": "s2", "text": "The on-call rota was understaffed, and the runbook was two years out of date.", "role": "forensic_account", "tense": "forensic" },
+      { "id": "s3", "text": "From next sprint, let's require a second reviewer on every production config change.", "role": "pivot", "tense": "deliberative" },
+      { "id": "s4", "text": "That should make another outage like this far less likely.", "role": "projected_benefit", "tense": "deliberative" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "Sentences 1–2 are forensic: causes and fault in the past. Sentence 3 turns to the deliberative genre by proposing a future action, and sentence 4 argues its advantage.",
+    "explanation_modern": "The first two sentences ask whose fault it was. The third asks what we do now. That's where the argument starts producing decisions instead of defensiveness."
+  },
+  {
+    "id": "w1_tense_demonstrative_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["tense_demonstrative"],
+    "difficulty_elo": 1100,
+    "domain": "Classical Civic",
+    "register_tags": { "classical": "Epideictic Praise", "modern": "Present Tense: Values" },
+    "prompt_instruction": "Click the sentence doing Demonstrative work, praising present values, rather than recounting the past or proposing action.",
+    "passage_segments": [
+      { "id": "s1", "text": "Fifteen years ago this library was a derelict warehouse with a leaking roof.", "role": "narrative", "tense": "forensic" },
+      { "id": "s2", "text": "A group of volunteers raised the money, rewired the building and stocked the shelves.", "role": "narrative", "tense": "forensic" },
+      { "id": "s3", "text": "They are the kind of neighbours every town claims to have and few towns actually do.", "role": "praise", "tense": "demonstrative" },
+      { "id": "s4", "text": "Next spring the council will vote on whether to fund an extension.", "role": "future_decision", "tense": "deliberative" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "Sentences 1–2 narrate past events, sentence 4 looks to a future decision, and sentence 3 is epideictic: present-tense praise that defines the community's values.",
+    "explanation_modern": "Sentence 3 is the 'this is who we are' line. It bonds the room around a value, and that's what makes the later vote easier to win."
+  },
+  {
+    "id": "w1_stasis_definition_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["stasis_definition", "stasis_policy", "tense_deliberative"],
+    "difficulty_elo": 1350,
+    "domain": "Everyday Dispute",
+    "register_tags": { "classical": "Stasis of Definition", "modern": "What Do We Call It?" },
+    "prompt_instruction": "Triage this dispute in three steps.",
+    "passage_segments": [
+      { "id": "s1", "text": "Manager: “We didn't fire Sam. We just didn't renew his contract.”", "role": "position_a" },
+      { "id": "s2", "text": "Union rep: “Ending a three-year rolling contract without warning is a dismissal in all but name.”", "role": "position_b" },
+      { "id": "s3", "text": "Both sides agree the contract ended on 31 March and that Sam had no warning.", "role": "agreed_facts" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Stasis",
+        "question": "At which stasis is this dispute stuck?",
+        "options": [
+          { "id": "a", "text": "Conjecture: did it happen?", "is_correct": false, "feedback": "The facts are agreed in sentence 3." },
+          { "id": "b", "text": "Definition: what do we call what happened?", "is_correct": true, "feedback": "Yes. Same facts, competing labels: 'non-renewal' versus 'dismissal'." },
+          { "id": "c", "text": "Quality: how bad was it?", "is_correct": false, "feedback": "Nobody is arguing severity yet. They can't, until they agree what it was." },
+          { "id": "d", "text": "Policy: what should be done?", "is_correct": false, "feedback": "Remedies come later, once the label is settled." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Resolving question",
+        "question": "Which question, if answered, would actually move this dispute forward?",
+        "options": [
+          { "id": "a", "text": "Under our agreement, what makes a non-renewal count as a dismissal?", "is_correct": true, "feedback": "Right. Agree the criteria, then apply them to the facts." },
+          { "id": "b", "text": "Did the contract really end on 31 March?", "is_correct": false, "feedback": "Already agreed. That's reopening conjecture for nothing." },
+          { "id": "c", "text": "Was Sam a good employee?", "is_correct": false, "feedback": "A quality question that doesn't settle the label." },
+          { "id": "d", "text": "Should the company rehire Sam?", "is_correct": false, "feedback": "Premature. Policy depends on the definition." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Counter-pivot",
+        "question": "Choose the union rep's strongest next line.",
+        "options": [
+          { "id": "a", "text": "You fired him, and you know it.", "is_correct": false, "feedback": "Bare contradiction. It restates the label without giving a reason." },
+          { "id": "b", "text": "Let's agree what counts as dismissal under our agreement. If three years of rolling renewals meet that test, we talk about reinstatement or compensation.", "is_correct": true, "feedback": "This proposes the criteria test and links it straight to a future remedy." },
+          { "id": "c", "text": "You did exactly the same to two people last year.", "is_correct": false, "feedback": "Drags the argument back into forensic blame." },
+          { "id": "d", "text": "Any decent employer would be ashamed of this.", "is_correct": false, "feedback": "An ethos attack. It raises the temperature and settles nothing." }
+        ]
+      }
+    ],
+    "explanation_formal": "With conjecture conceded, the dispute sits at the stasis of definition. Progress requires agreed definitional criteria, after which the argument can ascend to quality and policy.",
+    "explanation_modern": "They agree on what happened and fight over the word for it. Agree what the word means, check the facts against it, then talk remedies."
+  },
+  {
+    "id": "w1_stasis_conjecture_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["stasis_conjecture", "stasis_definition"],
+    "difficulty_elo": 1300,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Stasis of Conjecture", "modern": "Did It Happen?" },
+    "prompt_instruction": "Each sentence argues at a different stasis. Click the one at the stasis of Conjecture (did it happen?).",
+    "passage_segments": [
+      { "id": "s1", "text": "The question isn't whether the leak was serious. Of course it was.", "role": "quality" },
+      { "id": "s2", "text": "What matters is whether any customer data actually left our network.", "role": "conjecture" },
+      { "id": "s3", "text": "Calling it a 'breach' before we know that is premature.", "role": "definition" },
+      { "id": "s4", "text": "Either way, we should notify the regulator today.", "role": "policy" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which stasis does sentence 3 work at?",
+      "options": [
+        { "id": "o1", "text": "Definition", "is_correct": true, "feedback": "Yes. It argues about the right label ('breach') for the facts." },
+        { "id": "o2", "text": "Quality", "is_correct": false, "feedback": "Severity was sentence 1." },
+        { "id": "o3", "text": "Policy", "is_correct": false, "feedback": "Policy is sentence 4: notify the regulator." },
+        { "id": "o4", "text": "Conjecture", "is_correct": false, "feedback": "It depends on conjecture, but it is arguing about the name." }
+      ]
+    },
+    "explanation_formal": "One stasis per sentence: quality (1), conjecture (2), definition (3), policy (4). Note how sentence 4 sidesteps the uncertainty: a policy that holds whatever conjecture resolves to.",
+    "explanation_modern": "Did it happen (2)? What do we call it (3)? How bad is it (1)? What do we do (4)? The neat trick is the last line: an action that's right whichever way the facts fall."
+  },
+  {
+    "id": "w1_qualifier_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["toulmin_qualifier_rebuttal"],
+    "difficulty_elo": 1200,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Reservation (Rebuttal)", "modern": "“Unless…”" },
+    "prompt_instruction": "Click the sentence that states the Toulmin Rebuttal: the condition under which the claim would fail.",
+    "passage_segments": [
+      { "id": "s1", "text": "Our load tests show the new service handles 4,000 requests per second.", "role": "data_fact" },
+      { "id": "s2", "text": "That's double our peak traffic, so it will almost certainly cope with Black Friday.", "role": "claim_with_qualifier" },
+      { "id": "s3", "text": "That holds unless the payment provider's API slows down, as it did last year, and requests start to queue.", "role": "rebuttal" },
+      { "id": "s4", "text": "Either way, we'll have engineers on call that weekend.", "role": "context" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "Which phrase in sentence 2 is the Qualifier?",
+      "options": [
+        { "id": "o1", "text": "“almost certainly”", "is_correct": true, "feedback": "Right. The qualifier sets how strongly the claim is held." },
+        { "id": "o2", "text": "“double our peak traffic”", "is_correct": false, "feedback": "That's data, restated." },
+        { "id": "o3", "text": "“so”", "is_correct": false, "feedback": "An inference marker, not a qualifier." },
+        { "id": "o4", "text": "“Black Friday”", "is_correct": false, "feedback": "The scenario, not the strength of the claim." }
+      ]
+    },
+    "explanation_formal": "Data (1) → Claim with Qualifier 'almost certainly' (2) → Rebuttal or Reservation stating the exception (3). Sentence 4 is contingency planning, not part of the argument structure.",
+    "explanation_modern": "'Almost certainly' says how sure. 'Unless the payment API slows' says when it breaks. Stating both makes you more believable, not less."
+  },
+  {
+    "id": "w1_backing_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["toulmin_backing", "toulmin_warrant"],
+    "difficulty_elo": 1300,
+    "domain": "Modern Policy",
+    "register_tags": { "classical": "Backing", "modern": "Proof of the Rule" },
+    "prompt_instruction": "Click the sentence that provides Backing: support for the warrant itself, rather than more data about this case.",
+    "passage_segments": [
+      { "id": "s1", "text": "The inspection found hairline cracks in three of the bridge's support beams.", "role": "data_fact" },
+      { "id": "s2", "text": "Cracks like these mean the beams are fatiguing and will need replacing within five years.", "role": "warrant" },
+      { "id": "s3", "text": "That rule comes from forty years of the agency's own inspection records on steel bridges of this design.", "role": "backing" },
+      { "id": "s4", "text": "So the replacement should go into this year's capital budget.", "role": "claim" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "What job does the backing do?",
+      "options": [
+        { "id": "o1", "text": "It supports the general rule linking cracks to replacement.", "is_correct": true, "feedback": "Yes. Backing answers 'why trust that bridge rule?'" },
+        { "id": "o2", "text": "It adds more evidence about this particular bridge.", "is_correct": false, "feedback": "That would be data. Backing is about the rule, not the case." },
+        { "id": "o3", "text": "It qualifies how certain the claim is.", "is_correct": false, "feedback": "That's the qualifier's job." },
+        { "id": "o4", "text": "It answers an objection.", "is_correct": false, "feedback": "That's a rebuttal. No objection has been raised." }
+      ]
+    },
+    "explanation_formal": "Toulmin distinguishes Data (facts of the case) from Backing (grounds for the warrant). Sentence 3 backs the warrant in sentence 2 with an inductive record.",
+    "explanation_modern": "Sentence 2 is the rule. Sentence 3 says why the rule deserves trust: forty years of records. When someone challenges your rule, that's what you reach for."
+  },
+  {
+    "id": "w1_syllogism_invalid_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["syllogism_validity"],
+    "difficulty_elo": 1350,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Undistributed Middle", "modern": "The Logic Chain Breaks" },
+    "prompt_instruction": "Test the formal validity of this argument.",
+    "passage_segments": [
+      { "id": "s1", "text": "All certified auditors have passed the ethics exam.", "role": "major_premise" },
+      { "id": "s2", "text": "Dana has passed the ethics exam.", "role": "minor_premise" },
+      { "id": "s3", "text": "Therefore, Dana is a certified auditor.", "role": "conclusion" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Validity",
+        "question": "Is the argument formally valid?",
+        "options": [
+          { "id": "a", "text": "Valid: the conclusion follows from the premises.", "is_correct": false, "feedback": "The premises allow Dana to have passed the exam without being certified." },
+          { "id": "b", "text": "Invalid: the middle term ('passed the ethics exam') is never distributed.", "is_correct": true, "feedback": "Correct. Passing is necessary for certification, not sufficient." },
+          { "id": "c", "text": "Invalid, because the first premise is false.", "is_correct": false, "feedback": "Truth and validity are different questions. Validity is about form alone." },
+          { "id": "d", "text": "Valid but unsound.", "is_correct": false, "feedback": "It isn't valid in the first place." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Counterexample",
+        "question": "Which argument has the same form and plainly fails?",
+        "options": [
+          { "id": "a", "text": "All cats are mammals. Dogs are mammals. Therefore dogs are cats.", "is_correct": true, "feedback": "Same form, true premises, false conclusion. That proves the form is invalid." },
+          { "id": "b", "text": "All cats are mammals. Tom is a cat. Therefore Tom is a mammal.", "is_correct": false, "feedback": "That's a valid form (Barbara)." },
+          { "id": "c", "text": "No fish are mammals. Whales are mammals. Therefore whales are not fish.", "is_correct": false, "feedback": "Valid (Cesare)." },
+          { "id": "d", "text": "Some birds can't fly. Penguins are birds. Therefore penguins can't fly.", "is_correct": false, "feedback": "Different form (and invalid for another reason)." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Reply",
+        "question": "What would a careful colleague say?",
+        "options": [
+          { "id": "a", "text": "Passing the exam is required for certification but doesn't prove it. We'd need to check Dana's certification itself.", "is_correct": true, "feedback": "Necessary versus sufficient, stated plainly, with the obvious next step." },
+          { "id": "b", "text": "Dana seems trustworthy, so it's probably fine.", "is_correct": false, "feedback": "Swaps logic for impression." },
+          { "id": "c", "text": "The ethics exam is too easy anyway.", "is_correct": false, "feedback": "A red herring. It's irrelevant to the inference." },
+          { "id": "d", "text": "Your first premise is wrong.", "is_correct": false, "feedback": "The premise is fine. The problem is the form." }
+        ]
+      }
+    ],
+    "explanation_formal": "Form: All A are B; x is B; therefore x is A. This is the fallacy of the undistributed middle, a categorical cousin of affirming the consequent.",
+    "explanation_modern": "Every auditor passed the exam. That doesn't mean everyone who passed is an auditor. Required isn't the same as enough."
+  },
+  {
+    "id": "w1_syllogism_valid_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["syllogism_validity"],
+    "difficulty_elo": 1250,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Valid Syllogism (Camestres)", "modern": "The Chain That Holds" },
+    "prompt_instruction": "Test the validity of this argument, then reason about it.",
+    "passage_segments": [
+      { "id": "s1", "text": "Every member of the review panel has read the proposal.", "role": "major_premise" },
+      { "id": "s2", "text": "Jordan hasn't read the proposal.", "role": "minor_premise" },
+      { "id": "s3", "text": "So Jordan isn't on the panel.", "role": "conclusion" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Validity",
+        "question": "Is the argument formally valid?",
+        "options": [
+          { "id": "a", "text": "Valid: if every member read it and Jordan didn't, Jordan can't be a member.", "is_correct": true, "feedback": "Yes. Denying the consequent of a universal is valid." },
+          { "id": "b", "text": "Invalid: undistributed middle.", "is_correct": false, "feedback": "Compare the auditor drill. Here the form is All A are B; x is not B; so x is not A. That form is valid." },
+          { "id": "c", "text": "Invalid: it affirms the consequent.", "is_correct": false, "feedback": "It denies the consequent, which is the valid direction." },
+          { "id": "d", "text": "Can't tell without knowing whether Jordan is diligent.", "is_correct": false, "feedback": "Validity is decided by form alone." }
+        ]
+      },
+      {
+        "id": "t2", "label": "If the conclusion is false",
+        "question": "Suppose Jordan is in fact on the panel. What must be true?",
+        "options": [
+          { "id": "a", "text": "One of the premises is false. Perhaps not every member has actually read it.", "is_correct": true, "feedback": "Right. In a valid argument a false conclusion means a false premise. Here the universal premise is the likeliest suspect." },
+          { "id": "b", "text": "The argument was invalid after all.", "is_correct": false, "feedback": "Validity doesn't change with the facts." },
+          { "id": "c", "text": "Jordan must have read it secretly.", "is_correct": false, "feedback": "That's one way premise 2 could be false, but not the only possibility." },
+          { "id": "d", "text": "Nothing follows.", "is_correct": false, "feedback": "Something does: at least one premise is false." }
+        ]
+      }
+    ],
+    "explanation_formal": "All A are B; x is not B; therefore x is not A. This is valid. A false conclusion would therefore show the falsity of a premise, usually the universal one.",
+    "explanation_modern": "If everyone on the panel read it and Jordan didn't, Jordan isn't on the panel. If Jordan is on it, then 'everyone read it' was the bit that wasn't true."
+  },
+  {
+    "id": "w1_claim_finding_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["toulmin_claim_data", "toulmin_warrant"],
+    "difficulty_elo": 1000,
+    "domain": "Business",
+    "register_tags": { "classical": "Claim", "modern": "What They Want You to Accept" },
+    "prompt_instruction": "Click the main Claim, the conclusion this passage is pushing.",
+    "passage_segments": [
+      { "id": "s1", "text": "Our main competitor cut prices by 15% in March.", "role": "data_fact" },
+      { "id": "s2", "text": "Since then, three of our largest clients have asked for discounts.", "role": "data_fact" },
+      { "id": "s3", "text": "We need to rethink our pricing before the renewal season.", "role": "claim" },
+      { "id": "s4", "text": "Clients who see a cheaper equivalent tend to leave at renewal unless they're given a reason to stay.", "role": "warrant" },
+      { "id": "s5", "text": "Clients locked into multi-year integrations may be the exception.", "role": "rebuttal" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "Which sentence is the warrant?",
+      "options": [
+        { "id": "o1", "text": "Sentence 4: clients who see a cheaper equivalent tend to leave at renewal…", "is_correct": true, "feedback": "Yes. It's the general rule that turns the price cut into a threat." },
+        { "id": "o2", "text": "Sentence 1: the competitor cut prices.", "is_correct": false, "feedback": "Data." },
+        { "id": "o3", "text": "Sentence 2: clients asked for discounts.", "is_correct": false, "feedback": "Data." },
+        { "id": "o4", "text": "Sentence 5: multi-year clients may be the exception.", "is_correct": false, "feedback": "That's the rebuttal or reservation." }
+      ]
+    },
+    "explanation_formal": "Data (1, 2), Claim (3), Warrant (4), Rebuttal (5). The claim sits mid-passage. Claims are identified by function, not position.",
+    "explanation_modern": "Ask 'what do they want me to do or believe?' Here it's 'rethink pricing' in the middle. Everything else is a reason, a rule or an exception."
+  },
+  {
+    "id": "w1_blame_trap_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["tense_deliberative", "concession_pivot", "tense_forensic"],
+    "difficulty_elo": 1200,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Forensic Baiting", "modern": "The Blame Game" },
+    "prompt_instruction": "A meeting is going sideways. Diagnose it and choose your line.",
+    "passage_segments": [
+      { "id": "s1", "text": "We're going to miss the June delivery date we promised the client.", "role": "situation" },
+      { "id": "s2", "text": "Colleague: “Whose idea was it to promise them June in the first place?”", "role": "forensic_bait", "tense": "forensic" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Tense",
+        "question": "Which tense is the colleague pulling the meeting into?",
+        "options": [
+          { "id": "a", "text": "Forensic: past blame", "is_correct": true, "feedback": "Yes. 'Whose idea was it' is a question about fault." },
+          { "id": "b", "text": "Deliberative: future choice", "is_correct": false, "feedback": "Nothing in the question points forward." },
+          { "id": "c", "text": "Demonstrative: present values", "is_correct": false, "feedback": "It isn't praise or blame of character in the present." },
+          { "id": "d", "text": "None. It's a neutral question.", "is_correct": false, "feedback": "Tone aside, its function is assigning blame." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Cost",
+        "question": "What's the main cost of following that question right now?",
+        "options": [
+          { "id": "a", "text": "It turns a scheduling decision into a blame contest, and everyone gets defensive.", "is_correct": true, "feedback": "Right. The forensic tense breeds defence, not decisions." },
+          { "id": "b", "text": "It's rude.", "is_correct": false, "feedback": "Maybe, but the bigger cost is strategic, not social." },
+          { "id": "c", "text": "We'll never find out who made the promise.", "is_correct": false, "feedback": "We probably could. It just doesn't help us now." },
+          { "id": "d", "text": "There's no cost. Accountability matters most.", "is_correct": false, "feedback": "Accountability has a place (the retro), but the decision is due now." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Counter-pivot",
+        "question": "Choose your reply.",
+        "options": [
+          { "id": "a", "text": "It was the sales team, obviously.", "is_correct": false, "feedback": "You've joined the blame game." },
+          { "id": "b", "text": "That's irrelevant, and you know it.", "is_correct": false, "feedback": "Snark costs you ethos and offers no direction." },
+          { "id": "c", "text": "Fair question for the retro. Right now the choice is whether we ask for two more weeks or cut scope. Which costs the client less?", "is_correct": true, "feedback": "Concede-and-pivot: you grant the question its place, then put a concrete choice on the table." },
+          { "id": "d", "text": "We all share responsibility for what happened.", "is_correct": false, "feedback": "A demonstrative platitude. It leaves the meeting with no decision." }
+        ]
+      }
+    ],
+    "explanation_formal": "Forensic questions in a deliberative setting displace the stasis from policy to fault. The remedy is to concede the forensic question a proper forum, then restore the deliberative tense with a concrete alternative.",
+    "explanation_modern": "Blame can wait for the retro. The meeting's job is the choice, so name it, frame it as options, and ask the room to pick."
+  },
+  {
+    "id": "w1_toulmin_assembly_01",
+    "tier": "deterministic",
+    "drill_type": "syntactic_assembly",
+    "taxonomy_nodes": ["toulmin_qualifier_rebuttal", "toulmin_warrant"],
+    "difficulty_elo": 1150,
+    "domain": "Business",
+    "register_tags": { "classical": "Full Toulmin Chain", "modern": "Because, So, Probably, Unless" },
+    "prompt_instruction": "Assemble a single sentence that runs Data → Warrant → Qualified Claim → Rebuttal. One block is a decoy.",
+    "target_structure": "Data → Warrant → Qualified Claim → Rebuttal",
+    "blocks": [
+      { "id": "b1", "text": "Because churn doubled after the price rise," },
+      { "id": "b2", "text": "and customers who leave over price rarely come back," },
+      { "id": "b3", "text": "we should probably reverse it" },
+      { "id": "b4", "text": "unless the extra revenue more than covers the losses." },
+      { "id": "b5", "text": "since everyone hates price rises," }
+    ],
+    "solutions": [["b1", "b2", "b3", "b4"]],
+    "time_limit_s": 75,
+    "explanation_formal": "Data (churn doubled), Warrant (price-driven churn is persistent), Claim with Qualifier ('probably'), Rebuttal ('unless…'). The decoy offers an over-general emotional premise in place of a warrant.",
+    "explanation_modern": "Fact, rule, careful conclusion, escape hatch. The decoy ('everyone hates price rises') sounds like a reason, but it's a feeling stated as a rule."
+  },
+  {
+    "id": "w1_stasis_quality_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["stasis_quality", "fallacy_tautology", "tense_deliberative"],
+    "difficulty_elo": 1300,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Stasis of Quality (Mitigation)", "modern": "How Bad Is It Really?" },
+    "prompt_instruction": "Diagnose the speaker's move, then choose the best reply.",
+    "passage_segments": [
+      { "id": "s1", "text": "Yes, the intern copied two paragraphs from a blog into the report without attribution.", "role": "concedes_conjecture" },
+      { "id": "s2", "text": "Yes, that's plagiarism.", "role": "concedes_definition" },
+      { "id": "s3", "text": "But it was an internal draft, it was her first week, and nobody outside the team saw it.", "role": "mitigation" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Stasis",
+        "question": "At which stasis is the speaker choosing to fight?",
+        "options": [
+          { "id": "a", "text": "Conjecture", "is_correct": false, "feedback": "Conceded in sentence 1." },
+          { "id": "b", "text": "Definition", "is_correct": false, "feedback": "Conceded in sentence 2." },
+          { "id": "c", "text": "Quality", "is_correct": true, "feedback": "Yes. The facts and the label are granted, and the fight is over severity." },
+          { "id": "d", "text": "Policy", "is_correct": false, "feedback": "No remedy has been proposed yet." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Flaw",
+        "question": "A colleague replies: “Plagiarism is plagiarism. Rules are rules.” What's wrong with that?",
+        "options": [
+          { "id": "a", "text": "It's a tautology that repeats the definition and never engages with severity.", "is_correct": true, "feedback": "Right. It answers a quality argument with a definitional truism." },
+          { "id": "b", "text": "It's an ad hominem.", "is_correct": false, "feedback": "It doesn't attack anyone personally." },
+          { "id": "c", "text": "It's a slippery slope.", "is_correct": false, "feedback": "No chain of consequences is asserted." },
+          { "id": "d", "text": "Nothing. It's decisive.", "is_correct": false, "feedback": "It can't be decisive. Everyone already agreed it was plagiarism." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Counter-pivot",
+        "question": "Choose the reply that is firm, fair and forward-looking.",
+        "options": [
+          { "id": "a", "text": "If we let this slide, next year every intern will be copying whole reports.", "is_correct": false, "feedback": "A slippery slope, the Wrong Ending." },
+          { "id": "b", "text": "Agreed, the harm here is small. Let's treat it as a training moment and make attribution part of every intern's induction.", "is_correct": true, "feedback": "Grants the quality argument and turns it into a policy that prevents a repeat." },
+          { "id": "c", "text": "Her manager should have caught it.", "is_correct": false, "feedback": "Moves the blame sideways. Still forensic." },
+          { "id": "d", "text": "She clearly doesn't respect the team.", "is_correct": false, "feedback": "Mind-reading, and it escalates." }
+        ]
+      }
+    ],
+    "explanation_formal": "A classic mitigation: concede conjecture and definition to contest quality. Responding with a definitional tautology misses the stasis. The productive response accepts the quality judgement and ascends to policy.",
+    "explanation_modern": "She's not saying 'I didn't' or 'it isn't plagiarism'. She's saying 'it's minor'. Meet her there, then move to what changes next time."
+  },
+  {
+    "id": "w1_enthymeme_02",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["enthymeme", "toulmin_warrant"],
+    "difficulty_elo": 1150,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Enthymeme", "modern": "The Silent Premise" },
+    "prompt_instruction": "Click the conclusion that rests on an unstated premise.",
+    "passage_segments": [
+      { "id": "s1", "text": "The new hire's code passed every automated test.", "role": "data_fact" },
+      { "id": "s2", "text": "So it's ready to merge into the main branch.", "role": "claim", "note": "Assumes the tests cover everything that matters." },
+      { "id": "s3", "text": "The test suite runs on every commit.", "role": "context" },
+      { "id": "s4", "text": "It takes about twelve minutes to finish.", "role": "context" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which premise is assumed but never stated?",
+      "options": [
+        { "id": "o1", "text": "Passing the automated tests is enough to show code is ready to merge.", "is_correct": true, "feedback": "Yes. And it's often false: tests rarely cover design, security or readability." },
+        { "id": "o2", "text": "New hires write worse code than experienced staff.", "is_correct": false, "feedback": "Nobody says that, and the argument doesn't need it." },
+        { "id": "o3", "text": "Twelve minutes is an acceptable build time.", "is_correct": false, "feedback": "Irrelevant to whether the code is ready." },
+        { "id": "o4", "text": "The tests run on every commit.", "is_correct": false, "feedback": "That's stated in sentence 3, so it isn't silent." }
+      ]
+    },
+    "explanation_formal": "From 'passed tests' to 'ready to merge' requires the suppressed premise that test coverage is sufficient evidence of readiness, which is the point to contest.",
+    "explanation_modern": "'It passed the tests, so it's ready' quietly assumes the tests check everything. Say that out loud and the gap is obvious."
+  },
+  {
+    "id": "w1_deliberative_offer_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["tense_deliberative", "concession_pivot"],
+    "difficulty_elo": 1100,
+    "domain": "Classical Civic",
+    "register_tags": { "classical": "Deliberative Proposal", "modern": "Put the Choice on the Table" },
+    "prompt_instruction": "Click the sentence that puts a concrete choice before the audience.",
+    "passage_segments": [
+      { "id": "s1", "text": "The previous administration sold the playing fields, and that was a mistake.", "role": "forensic_concession", "tense": "forensic" },
+      { "id": "s2", "text": "I'm not going to pretend otherwise.", "role": "ethos" },
+      { "id": "s3", "text": "But blaming them won't give one child a place to play next summer.", "role": "pivot" },
+      { "id": "s4", "text": "Leasing the school grounds at weekends will, and we can approve that tonight.", "role": "proposal", "tense": "deliberative" }
+    ],
+    "correct_target_id": "s4",
+    "explanation_formal": "Forensic concession (1–2), pivot naming the futility of blame (3), and a deliberative proposal with a concrete action and timeframe (4).",
+    "explanation_modern": "Sentence 3 turns the corner, but sentence 4 is the choice: lease the school grounds, vote tonight. A pivot without an offer is only half a pivot."
+  },
+  {
+    "id": "w1_stasis_policy_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["stasis_policy"],
+    "difficulty_elo": 1150,
+    "domain": "Modern Policy",
+    "register_tags": { "classical": "Stasis of Policy", "modern": "What Should We Do?" },
+    "prompt_instruction": "Click the sentence that locates the live disagreement at the stasis of Policy.",
+    "passage_segments": [
+      { "id": "s1", "text": "Everyone agrees the waiting list for assessments is too long.", "role": "agreed_quality" },
+      { "id": "s2", "text": "And we all accept that it has grown every year since 2019.", "role": "agreed_conjecture" },
+      { "id": "s3", "text": "The live question is whether we hire more assessors or change who qualifies for an assessment.", "role": "policy" },
+      { "id": "s4", "text": "Hiring is slow; changing the criteria is quick but fairer to some and harsher to others.", "role": "trade_off" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "Conjecture (2) and quality (1) are agreed, so the dispute advances to policy (3). Sentence 4 begins weighing the policy alternatives.",
+    "explanation_modern": "Facts agreed, badness agreed, so the real argument is what to do. Naming that out loud stops people re-arguing the settled parts."
+  }
+]

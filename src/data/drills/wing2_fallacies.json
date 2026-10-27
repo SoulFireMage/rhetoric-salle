@@ -1,0 +1,606 @@
+[
+  {
+    "id": "w2_false_choice_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_false_choice", "tense_deliberative"],
+    "difficulty_elo": 1350,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "False Dilemma / Deliberative Pivot", "modern": "False Choice / Future-Choice Framing" },
+    "prompt_instruction": "Click the sentence that introduces a False Choice, then select the strongest Deliberative pivot.",
+    "passage_segments": [
+      { "id": "s1", "text": "Our legacy database migrations have missed three deadlines this quarter.", "role": "data_fact", "tense": "forensic" },
+      { "id": "s2", "text": "Either we freeze all feature development for six months, or the entire platform will collapse by winter.", "role": "fallacy_target", "tense": "deliberative_flawed" },
+      { "id": "s3", "text": "Management needs to answer for why they hired underqualified contractors last year.", "role": "distractor_blame", "tense": "forensic" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which response best neutralises the fallacy while keeping the argument in the Deliberative (future) tense?",
+      "options": [
+        { "id": "o1", "text": "The platform won't collapse. You're catastrophising over a minor delay.", "is_correct": false, "feedback": "Direct contradiction ('nuh-uh') with no forward-looking choice, and it labels the speaker." },
+        { "id": "o2", "text": "Freezing all features and risking collapse aren't our only options. Let's isolate the highest-risk schema tables this sprint and keep core feature work moving.", "is_correct": true, "feedback": "Exposes the False Choice and immediately proposes a concrete Deliberative action." },
+        { "id": "o3", "text": "First we need to understand why the contractors were hired.", "is_correct": false, "feedback": "Follows the bait in sentence 3 back into forensic blame." },
+        { "id": "o4", "text": "Then freezing features is the responsible choice.", "is_correct": false, "feedback": "Accepts the dilemma as framed." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 is a False Dilemma: it artificially restricts the solution space to two extremes. Sentence 3 drags the stasis backward into forensic blame.",
+    "explanation_modern": "Sentence 2 traps the listener in a black-and-white False Choice, while sentence 3 plays the Blame Game (past tense) instead of fixing the problem."
+  },
+  {
+    "id": "w2_motte_bailey_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["trap_motte_bailey", "ethos_phronesis"],
+    "difficulty_elo": 1400,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Motte-and-Bailey Doctrine", "modern": "Bait-and-Retreat" },
+    "prompt_instruction": "Diagnose the exchange and choose your reply.",
+    "passage_segments": [
+      { "id": "s1", "text": "Speaker: “Remote work is destroying company culture.”", "role": "bailey" },
+      { "id": "s2", "text": "Challenger: “Our engagement scores went up after we went remote.”", "role": "challenge" },
+      { "id": "s3", "text": "Speaker: “All I'm saying is that some things are harder to do over video.”", "role": "motte" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Diagnosis",
+        "question": "What manoeuvre does the speaker make in the last line?",
+        "options": [
+          { "id": "a", "text": "Motte-and-Bailey: retreating to a modest claim when the bold one is challenged", "is_correct": true, "feedback": "Yes. The bold claim gets swapped for a near-truism under fire." },
+          { "id": "b", "text": "Straw Man", "is_correct": false, "feedback": "The speaker isn't distorting the challenger's view. They're shrinking their own." },
+          { "id": "c", "text": "Red Herring", "is_correct": false, "feedback": "Related topic, but the tell is the retreat to a weaker version of the same claim." },
+          { "id": "d", "text": "Equivocation", "is_correct": false, "feedback": "No single word changes meaning. It's two different claims." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Locate",
+        "question": "Which is the bailey, the bold, valuable but hard-to-defend claim?",
+        "options": [
+          { "id": "a", "text": "“Remote work is destroying company culture.”", "is_correct": true, "feedback": "Right. That's the territory the speaker actually wants." },
+          { "id": "b", "text": "“Some things are harder to do over video.”", "is_correct": false, "feedback": "That's the motte, the easily defended fallback." },
+          { "id": "c", "text": "“Our engagement scores went up.”", "is_correct": false, "feedback": "That's the challenger's evidence." },
+          { "id": "d", "text": "There isn't one.", "is_correct": false, "feedback": "There is: the opening line." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Counter-pivot",
+        "question": "Choose your reply.",
+        "options": [
+          { "id": "a", "text": "So you admit you were wrong.", "is_correct": false, "feedback": "Gloating costs you ethos, and they'll simply return to the bailey later." },
+          { "id": "b", "text": "Video calls are perfectly fine, actually.", "is_correct": false, "feedback": "Now you're attacking the motte, which is the defensible part." },
+          { "id": "c", "text": "Agreed, some things are harder over video. Is your original claim, that remote work is destroying our culture, still on the table? If so, what would show it?", "is_correct": true, "feedback": "Grant the motte, then pin the bailey down and ask for its evidence." },
+          { "id": "d", "text": "Back in 2019 the office was worse anyway.", "is_correct": false, "feedback": "A forensic detour that ignores the manoeuvre." }
+        ]
+      }
+    ],
+    "explanation_formal": "The motte-and-bailey (Shackel) pairs a desirable but contestable claim (the bailey) with a modest, defensible one (the motte), retreating to the latter when challenged and reoccupying the former when the challenge passes.",
+    "explanation_modern": "Big claim, pushback, tiny claim, and next week the big claim is back. Concede the tiny claim and make them own or drop the big one."
+  },
+  {
+    "id": "w2_kafka_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["trap_kafka"],
+    "difficulty_elo": 1350,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Kafka Trap", "modern": "Denial as Proof" },
+    "prompt_instruction": "Click the sentence where the Kafka Trap springs.",
+    "passage_segments": [
+      { "id": "s1", "text": "The culture audit concluded that our team habitually covers up mistakes.", "role": "accusation" },
+      { "id": "s2", "text": "When Lee said he had never hidden an error, the auditor recorded it as “defensiveness consistent with a cover-up culture”.", "role": "fallacy_target" },
+      { "id": "s3", "text": "Two colleagues who agreed with the finding were described as “admirably candid”.", "role": "reinforcement" },
+      { "id": "s4", "text": "The report goes to the board next week.", "role": "context" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "What's the strongest response to the audit's method?",
+      "options": [
+        { "id": "o1", "text": "What would we observe if there were no cover-up culture? If both denial and agreement confirm the finding, nothing could ever count against it.", "is_correct": true, "feedback": "Yes. Expose the unfalsifiability without attacking anyone." },
+        { "id": "o2", "text": "The auditor is clearly biased against us.", "is_correct": false, "feedback": "Ad hominem. It also looks exactly like the 'defensiveness' they predicted." },
+        { "id": "o3", "text": "Fine, we admit it.", "is_correct": false, "feedback": "Capitulating to an unfalsifiable claim teaches nothing." },
+        { "id": "o4", "text": "Lee is the most honest person on the team.", "is_correct": false, "feedback": "Character testimony doesn't touch the logical trap." }
+      ]
+    },
+    "explanation_formal": "The Kafka Trap makes the accusation unfalsifiable: denial is reinterpreted as evidence of guilt, so no possible response could disconfirm it.",
+    "explanation_modern": "Heads I win, tails you lose: deny it and you're defensive, agree and you're candid. Ask what evidence could ever show the claim was false."
+  },
+  {
+    "id": "w2_equivocation_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["trap_equivocation", "stasis_definition"],
+    "difficulty_elo": 1300,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Fallacia Aequivocationis", "modern": "The Word Swap" },
+    "prompt_instruction": "Click the sentence where a key word quietly changes meaning.",
+    "passage_segments": [
+      { "id": "s1", "text": "The contract requires the supplier to deliver a “working” prototype by June.", "role": "data_fact" },
+      { "id": "s2", "text": "The prototype boots and runs the demo script, so it is working.", "role": "fallacy_target" },
+      { "id": "s3", "text": "Therefore the supplier has met its obligations in full.", "role": "claim" },
+      { "id": "s4", "text": "That it crashes under any real load is a separate matter for phase two.", "role": "deflection" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "What's the swap?",
+      "options": [
+        { "id": "o1", "text": "“Working” shifts from “fit for its agreed purpose” to “runs at all”.", "is_correct": true, "feedback": "Yes. The contract's sense and the supplier's sense are different claims." },
+        { "id": "o2", "text": "“Prototype” shifts from “draft” to “final product”.", "is_correct": false, "feedback": "Nobody claims it's final." },
+        { "id": "o3", "text": "“June” shifts meaning.", "is_correct": false, "feedback": "Dates aren't the issue." },
+        { "id": "o4", "text": "There's no swap. It boots, so it works.", "is_correct": false, "feedback": "That's the equivocation talking." }
+      ]
+    },
+    "explanation_formal": "The argument equivocates on 'working': the contractual sense (fit for purpose) appears in the premise and the minimal sense (operational at all) in the inference.",
+    "explanation_modern": "Same word, two meanings. The contract meant 'does the job', the supplier means 'switches on'. Pin the definition down before anyone signs off."
+  },
+  {
+    "id": "w2_gish_gallop_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["trap_gish_gallop", "ethos_phronesis"],
+    "difficulty_elo": 1350,
+    "domain": "Modern Policy",
+    "register_tags": { "classical": "Gish Gallop", "modern": "The Firehose" },
+    "prompt_instruction": "Your opponent has just said this in a 60-second turn. Diagnose and respond.",
+    "passage_segments": [
+      { "id": "s1", "text": "The four-day week is a disaster. Productivity always falls. Customers hate it. The Iceland trial was rigged.", "role": "gallop" },
+      { "id": "s2", "text": "It costs more than it saves. Staff just take second jobs. And every company that tried it went back within a year.", "role": "gallop" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Diagnosis",
+        "question": "What tactic is this?",
+        "options": [
+          { "id": "a", "text": "Gish Gallop", "is_correct": true, "feedback": "Yes: many quick, unsupported claims, more than you can answer in your turn." },
+          { "id": "b", "text": "Motte-and-Bailey", "is_correct": false, "feedback": "There's no retreat to a modest claim." },
+          { "id": "c", "text": "Kafka Trap", "is_correct": false, "feedback": "Nothing makes your denial count as evidence." },
+          { "id": "d", "text": "Tautology", "is_correct": false, "feedback": "The claims aren't circular, just numerous and unsupported." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Strategy",
+        "question": "What's the best strategy?",
+        "options": [
+          { "id": "a", "text": "Answer every claim briefly, in order.", "is_correct": false, "feedback": "You'll run out of time and look like you're losing." },
+          { "id": "b", "text": "Name the pattern, pick the claim their case rests on, and refute that one thoroughly.", "is_correct": true, "feedback": "Right. Depth beats breadth, and naming it makes the audience see the volume as weakness." },
+          { "id": "c", "text": "Gallop back with seven claims of your own.", "is_correct": false, "feedback": "Now it's two firehoses and no argument." },
+          { "id": "d", "text": "Refuse to respond until they slow down.", "is_correct": false, "feedback": "Concedes the floor." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Opening line",
+        "question": "Choose your opening line.",
+        "options": [
+          { "id": "a", "text": "You've made seven claims in a minute. Rather than skim all seven, let's test the one your case rests on: that it costs more than it saves.", "is_correct": true, "feedback": "Names the tactic calmly and chooses the load-bearing claim." },
+          { "id": "b", "text": "Literally none of that is true.", "is_correct": false, "feedback": "Your own overclaim, and just as unsupported." },
+          { "id": "c", "text": "The Iceland trial wasn't rigged, productivity didn't fall, customers don't hate it…", "is_correct": false, "feedback": "You've accepted their battlefield." },
+          { "id": "d", "text": "You clearly haven't read any research.", "is_correct": false, "feedback": "Ad hominem. You also can't know it." }
+        ]
+      }
+    ],
+    "explanation_formal": "The Gish Gallop exploits the asymmetry between asserting and refuting. The counter is to make that asymmetry explicit and concentrate refutation on the argument's load-bearing claim.",
+    "explanation_modern": "A claim takes five seconds to make and five minutes to debunk. Say so, then take apart the one claim the whole case leans on."
+  },
+  {
+    "id": "w2_straw_man_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["trap_straw_man"],
+    "difficulty_elo": 1050,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Straw Man", "modern": "The Scarecrow" },
+    "prompt_instruction": "Click the sentence that builds the straw man.",
+    "passage_segments": [
+      { "id": "s1", "text": "My colleague proposes that staff may work from home one day a week.", "role": "fair_summary" },
+      { "id": "s2", "text": "So apparently we're meant to abandon the office entirely and let everyone set their own hours.", "role": "fallacy_target" },
+      { "id": "s3", "text": "That would make collaboration impossible.", "role": "refutes_straw" },
+      { "id": "s4", "text": "I'd urge us to keep things as they are.", "role": "claim" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Choose the best reply from the colleague.",
+      "options": [
+        { "id": "o1", "text": "I proposed one day a week, not abandoning the office. Do you have evidence that one remote day harms collaboration?", "is_correct": true, "feedback": "Restates the real position briefly and puts the burden back where it belongs." },
+        { "id": "o2", "text": "That's a ridiculous exaggeration and you know it.", "is_correct": false, "feedback": "True, but heat without direction." },
+        { "id": "o3", "text": "Actually, abandoning the office might be good.", "is_correct": false, "feedback": "Now you're defending the straw man." },
+        { "id": "o4", "text": "Collaboration is overrated anyway.", "is_correct": false, "feedback": "Concedes their frame and alienates the room." }
+      ]
+    },
+    "explanation_formal": "Sentence 1 states the position accurately. Sentence 2 replaces it with an extreme distortion, which sentences 3–4 then refute.",
+    "explanation_modern": "One day a week becomes 'abandon the office'. Don't defend the scarecrow. Restate what you actually said."
+  },
+  {
+    "id": "w2_weak_man_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["trap_weak_man", "trap_straw_man"],
+    "difficulty_elo": 1400,
+    "domain": "Modern Policy",
+    "register_tags": { "classical": "Weak Man", "modern": "Picking the Feeblest Defender" },
+    "prompt_instruction": "Click the sentence where the speaker picks the weakest opponent to argue against.",
+    "passage_segments": [
+      { "id": "s1", "text": "Opponents of the bypass have raised a range of objections over the past year.", "role": "context" },
+      { "id": "s2", "text": "The county ecologist's report warns that it would cut through the last ancient woodland in the district.", "role": "strongest_objection" },
+      { "id": "s3", "text": "But let's be honest about the opposition: one protester last week claimed the road would “poison every well in the valley”.", "role": "fallacy_target" },
+      { "id": "s4", "text": "Objections of that quality hardly deserve a hearing.", "role": "claim" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "Why is this a weak man rather than a straw man?",
+      "options": [
+        { "id": "o1", "text": "The protester really said it. The fault is choosing the weakest real objection and ignoring the strongest.", "is_correct": true, "feedback": "Exactly. The quote is accurate, but the selection is the distortion." },
+        { "id": "o2", "text": "Because the protester is right.", "is_correct": false, "feedback": "Probably not, and that isn't the point." },
+        { "id": "o3", "text": "Because it attacks the ecologist personally.", "is_correct": false, "feedback": "The ecologist is ignored, not attacked." },
+        { "id": "o4", "text": "There's no difference.", "is_correct": false, "feedback": "A straw man invents a position. A weak man cherry-picks a real one." }
+      ]
+    },
+    "explanation_formal": "The weak man (Talisse & Aikin) refutes an actual but unrepresentative advocate. The speaker passes over the strongest objection (s2) to dismiss the class through its weakest member (s3–s4).",
+    "explanation_modern": "The quote is real. The trick is the cherry-pick: answer the silliest critic and act as if the ecologist's report never existed."
+  },
+  {
+    "id": "w2_ad_hominem_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_ad_hominem"],
+    "difficulty_elo": 1000,
+    "domain": "Science & Medicine",
+    "register_tags": { "classical": "Argumentum ad Hominem", "modern": "Personal Attack" },
+    "prompt_instruction": "Click the personal attack.",
+    "passage_segments": [
+      { "id": "s1", "text": "Dr Okafor's study found the drug reduced hospital admissions by 12%.", "role": "data_fact" },
+      { "id": "s2", "text": "But Dr Okafor has been divorced twice and can't keep her own life in order.", "role": "fallacy_target" },
+      { "id": "s3", "text": "So I wouldn't put much stock in her numbers.", "role": "claim" },
+      { "id": "s4", "text": "The trial involved 4,000 patients across nine hospitals.", "role": "data_fact" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which of these is a legitimate challenge rather than an ad hominem?",
+      "options": [
+        { "id": "o1", "text": "Was the trial pre-registered, and were admissions measured the same way in both arms?", "is_correct": true, "feedback": "Yes. It goes after the method, which is where the numbers come from." },
+        { "id": "o2", "text": "She's always been overambitious.", "is_correct": false, "feedback": "Character, not evidence." },
+        { "id": "o3", "text": "Her university isn't very prestigious.", "is_correct": false, "feedback": "Prestige by association. It doesn't touch the data." },
+        { "id": "o4", "text": "She would say that.", "is_correct": false, "feedback": "Insinuated motive with no evidence of a conflict." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 is an abusive ad hominem: personal life has no bearing on the trial data. A documented conflict of interest would be a reason to scrutinise the method more closely, not to dismiss the result.",
+    "explanation_modern": "Her divorces don't change the admission numbers. If you doubt the study, question the study."
+  },
+  {
+    "id": "w2_ignorance_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_ignorance", "distortion_overclaiming"],
+    "difficulty_elo": 1050,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Argumentum ad Ignorantiam", "modern": "Ignorance as Proof" },
+    "prompt_instruction": "Click the sentence that treats absence of evidence as proof.",
+    "passage_segments": [
+      { "id": "s1", "text": "We've run the new caching layer in staging for a week.", "role": "context" },
+      { "id": "s2", "text": "Nobody has reported a single bug.", "role": "data_fact" },
+      { "id": "s3", "text": "So it's proven bug-free and ready for production.", "role": "fallacy_target" },
+      { "id": "s4", "text": "Staging traffic is about 2% of production volume.", "role": "undercutting_fact" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "Which sentence most undermines the conclusion?",
+      "options": [
+        { "id": "o1", "text": "Sentence 4: staging sees about 2% of production traffic.", "is_correct": true, "feedback": "Yes. With so little traffic, few bugs would have had the chance to show up." },
+        { "id": "o2", "text": "Sentence 1: a week in staging.", "is_correct": false, "feedback": "Relevant, but the traffic volume matters more than the duration." },
+        { "id": "o3", "text": "Sentence 2: nobody reported a bug.", "is_correct": false, "feedback": "That's the evidence the argument rests on." },
+        { "id": "o4", "text": "None of them.", "is_correct": false, "feedback": "Sentence 4 does real damage." }
+      ]
+    },
+    "explanation_formal": "From 'no bugs reported' to 'proven bug-free' is an argument from ignorance, compounded by overclaiming ('proven') and weakened by the low test exposure in sentence 4.",
+    "explanation_modern": "Nobody saw a bug is not the same as there being no bugs, especially when hardly anyone was looking."
+  },
+  {
+    "id": "w2_tautology_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["fallacy_tautology"],
+    "difficulty_elo": 1250,
+    "domain": "Business",
+    "register_tags": { "classical": "Petitio Principii", "modern": "Tautology" },
+    "prompt_instruction": "Diagnose the reasoning, then choose what would fix it.",
+    "passage_segments": [
+      { "id": "s1", "text": "We can trust the quarterly forecast because it comes from the forecasting team.", "role": "claim" },
+      { "id": "s2", "text": "And the forecasting team is trustworthy because their forecasts are reliable.", "role": "circular_support" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Diagnosis",
+        "question": "What's wrong with this reasoning?",
+        "options": [
+          { "id": "a", "text": "It's circular: the forecasts are trusted because of the team, and the team because of the forecasts.", "is_correct": true, "feedback": "Yes, petitio principii. The conclusion props up its own premise." },
+          { "id": "b", "text": "It's an ad hominem.", "is_correct": false, "feedback": "It praises the team rather than attacking anyone, and it's still circular." },
+          { "id": "c", "text": "It's a false choice.", "is_correct": false, "feedback": "No options are being restricted." },
+          { "id": "d", "text": "Nothing. It's a reasonable appeal to expertise.", "is_correct": false, "feedback": "An appeal to expertise needs independent grounds for the expertise." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Fix",
+        "question": "What would break the circle?",
+        "options": [
+          { "id": "a", "text": "An independent track record: how past forecasts compared with actual results.", "is_correct": true, "feedback": "Right. External evidence gives the argument a foundation outside itself." },
+          { "id": "b", "text": "A more senior forecasting team.", "is_correct": false, "feedback": "Still authority vouching for itself." },
+          { "id": "c", "text": "Repeating the forecast more confidently.", "is_correct": false, "feedback": "Confidence isn't evidence." },
+          { "id": "d", "text": "Asking the team whether they're reliable.", "is_correct": false, "feedback": "That's the circle again." }
+        ]
+      }
+    ],
+    "explanation_formal": "Petitio principii: the reliability of the forecasts is both what's being proved and what's being assumed. Only independent evidence (backing) can ground the warrant.",
+    "explanation_modern": "'Trust them because they're trustworthy' goes round in a circle. You need outside evidence: check last year's forecasts against what actually happened."
+  },
+  {
+    "id": "w2_red_herring_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_red_herring"],
+    "difficulty_elo": 1100,
+    "domain": "Classical Civic",
+    "register_tags": { "classical": "Ignoratio Elenchi", "modern": "Red Herring" },
+    "prompt_instruction": "Click the red herring.",
+    "passage_segments": [
+      { "id": "s1", "text": "The question tonight is whether the school day should start at 9 a.m. instead of 8:15.", "role": "issue" },
+      { "id": "s2", "text": "Research on teenage sleep suggests later starts improve attendance and attention.", "role": "data_fact" },
+      { "id": "s3", "text": "Mr Hale argues against the change.", "role": "context" },
+      { "id": "s4", "text": "He points out that teachers already work long hours and deserve a pay rise.", "role": "fallacy_target" },
+      { "id": "s5", "text": "And who could disagree with that?", "role": "rhetorical_question" }
+    ],
+    "correct_target_id": "s4",
+    "explanation_formal": "Sentence 4 introduces a sympathetic but distinct issue (teacher pay) and so proves a conclusion other than the one in question. Sentence 5 then invites assent to the substituted issue.",
+    "explanation_modern": "The debate is about start times. Teacher pay may matter, but it's a different debate, and the applause line in sentence 5 hides the swap."
+  },
+  {
+    "id": "w2_false_comparison_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_false_comparison"],
+    "difficulty_elo": 1150,
+    "domain": "Business",
+    "register_tags": { "classical": "Faulty Analogy", "modern": "False Comparison" },
+    "prompt_instruction": "Click the faulty analogy the argument depends on.",
+    "passage_segments": [
+      { "id": "s1", "text": "We've always run this department like a family.", "role": "framing" },
+      { "id": "s2", "text": "And you don't fire family members when times are hard.", "role": "fallacy_target" },
+      { "id": "s3", "text": "So there should be no redundancies this year.", "role": "claim" },
+      { "id": "s4", "text": "Revenue fell by 30% last year.", "role": "data_fact" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which difference breaks the analogy?",
+      "options": [
+        { "id": "o1", "text": "Family membership isn't conditional on funding or contribution; employment is a contract either side can end.", "is_correct": true, "feedback": "Yes. The analogy fails on exactly the feature the conclusion needs." },
+        { "id": "o2", "text": "Families are smaller than departments.", "is_correct": false, "feedback": "True, but not the difference that matters for redundancies." },
+        { "id": "o3", "text": "Some families do fall out.", "is_correct": false, "feedback": "Doesn't address why the comparison fails." },
+        { "id": "o4", "text": "Revenue fell 30%.", "is_correct": false, "feedback": "Relevant data, but it doesn't explain why the analogy is flawed." }
+      ]
+    },
+    "explanation_formal": "The argument from analogy holds only if the compared items share the relevant property. Families and employers differ on conditionality of membership, the very property at issue.",
+    "explanation_modern": "'We're a family' sounds warm, but families don't have budgets that decide who stays. When the comparison breaks on the point that matters, so does the argument."
+  },
+  {
+    "id": "w2_bad_example_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_bad_example", "distortion_overclaiming"],
+    "difficulty_elo": 1000,
+    "domain": "Everyday Dispute",
+    "register_tags": { "classical": "Hasty Generalisation", "modern": "Bad Example" },
+    "prompt_instruction": "Click the sentence that carries the Bad Example the whole argument leans on.",
+    "passage_segments": [
+      { "id": "s1", "text": "My cousin bought an electric car, and the battery died after two years.", "role": "fallacy_target" },
+      { "id": "s2", "text": "So electric cars are clearly unreliable.", "role": "claim" },
+      { "id": "s3", "text": "I'd tell anyone thinking of buying one to wait ten years.", "role": "advice" },
+      { "id": "s4", "text": "Petrol cars have had over a century to get this right.", "role": "aside" }
+    ],
+    "correct_target_id": "s1",
+    "explanation_formal": "A single anecdote (s1) supports a universal judgement (s2): secundum quid, or hasty generalisation. 'Clearly' in s2 compounds it with overclaiming.",
+    "explanation_modern": "One cousin, one battery, and then a verdict on every electric car. Ask how typical the example is before trusting it."
+  },
+  {
+    "id": "w2_post_hoc_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["fallacy_wrong_ending"],
+    "difficulty_elo": 1150,
+    "domain": "Business",
+    "register_tags": { "classical": "Post Hoc Ergo Propter Hoc", "modern": "Wrong Ending" },
+    "prompt_instruction": "Click the conclusion that doesn't follow.",
+    "passage_segments": [
+      { "id": "s1", "text": "We rolled out the new onboarding emails in May.", "role": "data_fact" },
+      { "id": "s2", "text": "In June, sign-ups rose by 18%.", "role": "data_fact" },
+      { "id": "s3", "text": "Clearly, the emails caused the jump.", "role": "fallacy_target" },
+      { "id": "s4", "text": "June is also when our biggest seasonal campaign runs every year.", "role": "confound" }
+    ],
+    "correct_target_id": "s3",
+    "follow_up_question": {
+      "question": "What would actually test the claim?",
+      "options": [
+        { "id": "o1", "text": "Compare with June sign-ups in previous years, or hold the emails back from a random group.", "is_correct": true, "feedback": "Yes. A baseline or a control separates the emails' effect from the seasonal campaign." },
+        { "id": "o2", "text": "Send even more emails and see if sign-ups rise further.", "is_correct": false, "feedback": "Still confounded with everything else going on." },
+        { "id": "o3", "text": "Ask the marketing team whether they think it worked.", "is_correct": false, "feedback": "Opinion, not evidence." },
+        { "id": "o4", "text": "Nothing. The timing proves it.", "is_correct": false, "feedback": "Timing is exactly what post hoc reasoning mistakes for cause." }
+      ]
+    },
+    "explanation_formal": "Post hoc ergo propter hoc: temporal succession is taken as causation, ignoring a known confound (s4).",
+    "explanation_modern": "After is not the same as because. June always goes up, so check what the emails added on top of that."
+  },
+  {
+    "id": "w2_slippery_slope_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["fallacy_wrong_ending", "distortion_catastrophizing", "tense_deliberative"],
+    "difficulty_elo": 1200,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Slippery Slope (Non Sequitur)", "modern": "Wrong Ending" },
+    "prompt_instruction": "Diagnose and respond.",
+    "passage_segments": [
+      { "id": "s1", "text": "If we let one team trial flexible hours, every team will want them.", "role": "link_1" },
+      { "id": "s2", "text": "Then nobody will be in the office on Fridays, and within a year we won't be able to serve clients at all.", "role": "link_2" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Fallacy",
+        "question": "Which fallacy shapes this argument?",
+        "options": [
+          { "id": "a", "text": "Slippery Slope (Wrong Ending)", "is_correct": true, "feedback": "Yes. A chain of unearned consequences leads to an extreme end." },
+          { "id": "b", "text": "False Choice", "is_correct": false, "feedback": "Only one path is offered, but the flaw is the chain." },
+          { "id": "c", "text": "Tautology", "is_correct": false, "feedback": "Not circular." },
+          { "id": "d", "text": "Equivocation", "is_correct": false, "feedback": "No word changes meaning." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Distortion",
+        "question": "Which cognitive distortion fuels it?",
+        "options": [
+          { "id": "a", "text": "Catastrophising", "is_correct": true, "feedback": "Right: one trial ends with 'can't serve clients at all'." },
+          { "id": "b", "text": "Mind-Reading", "is_correct": false, "feedback": "'Every team will want them' is a guess, but the dominant engine is the spiral to disaster." },
+          { "id": "c", "text": "Emotional Reasoning", "is_correct": false, "feedback": "No feeling is offered as proof." },
+          { "id": "d", "text": "All-or-Nothing", "is_correct": false, "feedback": "Close, but the shape is escalation, not a binary." }
+        ]
+      },
+      {
+        "id": "t3", "label": "Counter-pivot",
+        "question": "Choose your reply.",
+        "options": [
+          { "id": "a", "text": "That's ridiculous. Nothing like that would happen.", "is_correct": false, "feedback": "Contradiction without a plan." },
+          { "id": "b", "text": "Let's run the trial with one team for three months, with a rule that Friday client cover is kept, and decide on the evidence whether to extend it.", "is_correct": true, "feedback": "Puts a guard on each feared link and makes the decision depend on data." },
+          { "id": "c", "text": "Other companies do it fine.", "is_correct": false, "feedback": "An unspecified Bad Example of your own." },
+          { "id": "d", "text": "You just don't trust your staff.", "is_correct": false, "feedback": "Mind-reading and ad hominem in one." }
+        ]
+      }
+    ],
+    "explanation_formal": "Each link in the chain is asserted, not argued. The deliberative remedy is to bound the risk at each link with a reversible, evidence-gated trial.",
+    "explanation_modern": "One trial doesn't mean no one in the office in a year. Make the trial small, reversible and measured, and the slope has nowhere to slide."
+  },
+  {
+    "id": "w2_catastrophizing_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["distortion_catastrophizing", "distortion_mind_reading"],
+    "difficulty_elo": 1050,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Magnification", "modern": "The Doom Spiral" },
+    "prompt_instruction": "Click the sentence where the speaker catastrophises.",
+    "passage_segments": [
+      { "id": "s1", "text": "I fumbled one question in the client presentation.", "role": "data_fact" },
+      { "id": "s2", "text": "Now they'll think the whole firm is incompetent, and we'll lose the account.", "role": "fallacy_target" },
+      { "id": "s3", "text": "I should never have been put in front of them.", "role": "self_judgement" },
+      { "id": "s4", "text": "Next time I'll prepare a backup slide on pricing.", "role": "constructive" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which second distortion is in the same sentence?",
+      "options": [
+        { "id": "o1", "text": "Mind-Reading: assuming what the client thinks", "is_correct": true, "feedback": "Yes. 'They'll think…' asserts the client's mind without evidence." },
+        { "id": "o2", "text": "Emotional Reasoning", "is_correct": false, "feedback": "No feeling is offered as evidence in that sentence." },
+        { "id": "o3", "text": "Tautology", "is_correct": false, "feedback": "Not circular." },
+        { "id": "o4", "text": "Equivocation", "is_correct": false, "feedback": "No word shifts meaning." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 magnifies one error into total loss (catastrophising) and attributes a judgement to the client without evidence (mind-reading). Sentence 4 is the healthy deliberative turn.",
+    "explanation_modern": "One fumble becomes 'we lose the account' in a single sentence. Sentence 4 is the version worth keeping: a concrete fix for next time."
+  },
+  {
+    "id": "w2_emotional_reasoning_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["distortion_emotional_reasoning"],
+    "difficulty_elo": 1100,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Emotional Reasoning", "modern": "I Feel It, So It's True" },
+    "prompt_instruction": "Click the sentence that treats a feeling as evidence.",
+    "passage_segments": [
+      { "id": "s1", "text": "The new security policy requires two-factor login on every account.", "role": "context" },
+      { "id": "s2", "text": "Honestly, it makes me uneasy.", "role": "feeling" },
+      { "id": "s3", "text": "And when something feels that wrong, it usually is, so it's probably making us less safe.", "role": "fallacy_target" },
+      { "id": "s4", "text": "Phishing-related account takeovers dropped by half in the first month.", "role": "contrary_data" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "Sentence 2 reports a feeling, which is legitimate. Sentence 3 infers a fact about the world from it, which is emotional reasoning, and sentence 4 contradicts that inference.",
+    "explanation_modern": "Feeling uneasy is fine. Concluding the policy makes us less safe because it feels wrong isn't, especially when the numbers point the other way."
+  },
+  {
+    "id": "w2_all_or_nothing_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["distortion_all_or_nothing"],
+    "difficulty_elo": 1000,
+    "domain": "Business",
+    "register_tags": { "classical": "Dichotomous Thinking", "modern": "All-or-Nothing" },
+    "prompt_instruction": "Click the all-or-nothing judgement.",
+    "passage_segments": [
+      { "id": "s1", "text": "The pilot hit four of its five targets.", "role": "data_fact" },
+      { "id": "s2", "text": "It missed the cost target by 3%.", "role": "data_fact" },
+      { "id": "s3", "text": "So the pilot failed, and we should scrap it.", "role": "fallacy_target" },
+      { "id": "s4", "text": "The team has already proposed a fix for the cost overrun.", "role": "data_fact" }
+    ],
+    "correct_target_id": "s3",
+    "explanation_formal": "A graded result (four of five targets, one narrowly missed) is collapsed into a binary verdict of failure, which licenses an extreme policy.",
+    "explanation_modern": "Four out of five and a 3% miss is not a failure. It's a pilot with one fixable problem."
+  },
+  {
+    "id": "w2_overclaiming_01",
+    "tier": "deterministic",
+    "drill_type": "surgical_dissection",
+    "taxonomy_nodes": ["distortion_overclaiming", "fallacy_bad_example"],
+    "difficulty_elo": 1150,
+    "domain": "Software/Engineering",
+    "register_tags": { "classical": "Epistemic Overclaiming", "modern": "Certainty Inflation" },
+    "prompt_instruction": "Click the overclaim.",
+    "passage_segments": [
+      { "id": "s1", "text": "Our survey of 200 users found that 61% preferred the new layout.", "role": "data_fact" },
+      { "id": "s2", "text": "This proves beyond doubt that all our users want the redesign.", "role": "fallacy_target" },
+      { "id": "s3", "text": "The survey went to people who had opted in to beta features.", "role": "sampling_issue" },
+      { "id": "s4", "text": "We'll roll it out to everyone on Monday.", "role": "policy" }
+    ],
+    "correct_target_id": "s2",
+    "follow_up_question": {
+      "question": "Which is the best-calibrated restatement?",
+      "options": [
+        { "id": "o1", "text": "Most beta users we surveyed preferred the new layout. Let's test with a representative sample before a full rollout.", "is_correct": true, "feedback": "Scoped to the sample, honest about the uncertainty, and still decisive about the next step." },
+        { "id": "o2", "text": "Users might possibly sort of like it, maybe.", "is_correct": false, "feedback": "Over-corrected into cowardly hedging (the Coyness Index)." },
+        { "id": "o3", "text": "61% of all users want the redesign.", "is_correct": false, "feedback": "Still generalises from a biased sample." },
+        { "id": "o4", "text": "The data is meaningless.", "is_correct": false, "feedback": "Throws out real information." }
+      ]
+    },
+    "explanation_formal": "Sentence 2 inflates a sample statistic into a universal certainty ('proves beyond doubt', 'all'). Sentence 3 shows the sample isn't representative.",
+    "explanation_modern": "61% of keen beta users is not 'all users, beyond doubt'. Say what the data shows, no more and no less."
+  },
+  {
+    "id": "w2_mind_reading_01",
+    "tier": "deterministic",
+    "drill_type": "diagnostic_tree",
+    "taxonomy_nodes": ["distortion_mind_reading", "pathos_cooling"],
+    "difficulty_elo": 950,
+    "domain": "Workplace",
+    "register_tags": { "classical": "Mind-Reading", "modern": "Mind-Reading" },
+    "prompt_instruction": "You've received this email. Diagnose it and reply.",
+    "passage_segments": [
+      { "id": "s1", "text": "You didn't reply to my proposal for three days, so clearly you think it's worthless and you're hoping I'll drop it.", "role": "fallacy_target" }
+    ],
+    "steps": [
+      {
+        "id": "t1", "label": "Distortion",
+        "question": "Which distortion is at work?",
+        "options": [
+          { "id": "a", "text": "Mind-Reading", "is_correct": true, "feedback": "Yes. Silence gets read as a specific hostile intention." },
+          { "id": "b", "text": "Catastrophising", "is_correct": false, "feedback": "No spiral to disaster here, just an assumed motive." },
+          { "id": "c", "text": "Tautology", "is_correct": false, "feedback": "Not circular." },
+          { "id": "d", "text": "Red Herring", "is_correct": false, "feedback": "It's on topic, just unfounded." }
+        ]
+      },
+      {
+        "id": "t2", "label": "Reply",
+        "question": "Choose your reply.",
+        "options": [
+          { "id": "a", "text": "I hadn't read it yet. I was on leave until Wednesday. I've read it now, and my main question is the budget in section 3.", "is_correct": true, "feedback": "Corrects the fact without accusation and moves straight to the substance." },
+          { "id": "b", "text": "You're being paranoid.", "is_correct": false, "feedback": "Labels the person and heats things up." },
+          { "id": "c", "text": "If you're going to be like this, maybe I will.", "is_correct": false, "feedback": "Confirms their fear and escalates." },
+          { "id": "d", "text": "Sorry, I'm a terrible colleague.", "is_correct": false, "feedback": "Over-apology, an all-or-nothing self-judgement, and it skips the proposal." }
+        ]
+      }
+    ],
+    "explanation_formal": "Mind-reading attributes a specific mental state to another without evidence. The best response corrects the factual premise and redirects to the deliberative question.",
+    "explanation_modern": "Three days of silence doesn't mean 'I think it's worthless'. Give the real reason, then engage with the proposal."
+  }
+]
