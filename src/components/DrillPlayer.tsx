@@ -17,6 +17,34 @@ interface Props {
 
 const prettyRole = (role: string) => role.replace(/_/g, ' ');
 
+const HOW_TO: Record<DrillItem['drill_type'], string> = {
+  surgical_dissection: 'Read the instruction, then click the sentence it asks for. The passage then shows each sentence’s role. Answer the follow-up question if there is one, and read the Anatomy at the end.',
+  diagnostic_tree: 'Answer the questions in order. Each step unlocks the next. Read the feedback on the options you didn’t choose too: every wrong option is wrong for a reason worth knowing.',
+  syntactic_assembly: 'Tap blocks to add them to your sentence, and tap a placed block to remove it. Some blocks are decoys. Press Check when done: you get two tries, and going over time gives partial credit.',
+};
+
+const SEEN_KEY = 'rs.seen_drill_types';
+function firstTimeFor(type: string): boolean {
+  try {
+    const seen: string[] = JSON.parse(localStorage.getItem(SEEN_KEY) ?? '[]');
+    if (seen.includes(type)) return false;
+    localStorage.setItem(SEEN_KEY, JSON.stringify([...seen, type]));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function HowTo({ type }: { type: DrillItem['drill_type'] }) {
+  const [open] = useState(() => firstTimeFor(type));
+  return (
+    <details class="howto" open={open}>
+      <summary>How this drill works</summary>
+      <p>{HOW_TO[type]} <a href="#/guide">Full guide</a></p>
+    </details>
+  );
+}
+
 export function DrillHeader({ drill }: { drill: DrillItem }) {
   const typeLabel = { surgical_dissection: 'Surgical Dissection', diagnostic_tree: 'Diagnostic Tree', syntactic_assembly: 'Clause Assembly' }[drill.drill_type];
   return (
@@ -44,6 +72,7 @@ function Inner({ drill, onComplete, blitz }: Props) {
   return (
     <div>
       <DrillHeader drill={drill} />
+      {!blitz && <HowTo type={drill.drill_type} />}
       <p class="prompt">{drill.prompt_instruction}</p>
       {drill.drill_type === 'surgical_dissection' && <Dissection drill={drill} onFinish={finish} blitz={blitz} />}
       {drill.drill_type === 'diagnostic_tree' && <Tree drill={drill} onFinish={finish} />}

@@ -17,6 +17,7 @@ import { SettingsPage } from './pages/Settings';
 import { Account } from './pages/Account';
 import { Admin } from './pages/Admin';
 import { Codex } from './pages/Codex';
+import { Guide } from './pages/Guide';
 
 const NAV = [
   ['/train', 'Drills'],
@@ -24,6 +25,7 @@ const NAV = [
   ['/salle', 'Salle'],
   ['/dashboard', 'Telemetry'],
   ['/codex', 'Codex'],
+  ['/guide', 'Guide'],
   ['/settings', 'Settings'],
 ] as const;
 
@@ -45,6 +47,7 @@ function Page() {
   if (path === '/account') return <Account />;
   if (path === '/admin') return <Admin />;
   if (path === '/codex') return <Codex />;
+  if (path === '/guide') return <Guide />;
   return (
     <div class="panel">
       <h1>Not found</h1>
