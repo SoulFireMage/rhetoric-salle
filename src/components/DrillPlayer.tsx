@@ -227,8 +227,16 @@ function Assembly({ drill, onFinish }: { drill: DrillItem; onFinish: (r: DrillRe
 
   const locked = status === 'solved' || status === 'revealed';
   const byId = (id: string) => blocks.find((b) => b.id === id)!;
+  const solutions = drill.solutions ?? [];
+  // The accepted order closest to the attempt, so feedback compares like with like.
+  const nearest = (attempt: string[]) =>
+    solutions.reduce((best, sol) => (inPlace(sol, attempt) > inPlace(best, attempt) ? sol : best), solutions[0] ?? []);
+  const inPlace = (sol: string[], attempt: string[]) => attempt.filter((id, i) => sol[i] === id).length;
+  const decoysUsed = tray.filter((id) => !solutions.some((sol) => sol.includes(id))).length;
+  const target = nearest(tray);
+
   const check = () => {
-    const ok = (drill.solutions ?? []).some((sol) => sol.join('|') === tray.join('|'));
+    const ok = solutions.some((sol) => sol.join('|') === tray.join('|'));
     const n = tries + 1;
     setTries(n);
     const t = performance.now() - start.current;
@@ -237,8 +245,8 @@ function Assembly({ drill, onFinish }: { drill: DrillItem; onFinish: (r: DrillRe
       const base = n === 1 ? 1 : 0.5;
       onFinish({ score: t / 1000 > limit ? base * 0.75 : base, ttd_ms: t });
     } else if (n >= 2) {
+      // Keep the attempt on screen; the accepted order is shown underneath.
       setStatus('revealed');
-      setTray(drill.solutions![0]);
       onFinish({ score: 0, ttd_ms: t });
     } else setStatus('wrong');
   };
@@ -252,9 +260,15 @@ function Assembly({ drill, onFinish }: { drill: DrillItem; onFinish: (r: DrillRe
       <div class="eyebrow">Your sentence</div>
       <div class="tray" aria-label="Your sentence (tap a block to remove it)">
         {tray.length === 0 && <span class="muted">Tap blocks below to build the sentence.</span>}
-        {tray.map((id, i) => (
-          <button class="block" disabled={locked} onClick={() => setTray(tray.filter((_, j) => j !== i))}>{byId(id).text}</button>
-        ))}
+        {tray.map((id, i) => {
+          const mark = status === 'revealed' ? (target[i] === id ? 'block-right' : 'block-wrong') : '';
+          return (
+            <button class={`block ${mark}`} disabled={locked} onClick={() => setTray(tray.filter((_, j) => j !== i))}
+              aria-label={mark ? `${byId(id).text} (${mark === 'block-right' ? 'in the right place' : 'out of place'})` : undefined}>
+              {byId(id).text}
+            </button>
+          );
+        })}
       </div>
       <div class="eyebrow" style={{ marginTop: '10px' }}>Blocks</div>
       <div class="pool">
@@ -268,10 +282,16 @@ function Assembly({ drill, onFinish }: { drill: DrillItem; onFinish: (r: DrillRe
           <button onClick={() => setTray([])} disabled={!tray.length}>Clear</button>
         </div>
       )}
-      {status === 'wrong' && <div class="notice bad">Not yet. One more try before the answer is shown.</div>}
+      {status === 'wrong' && (
+        <div class="notice bad">
+          Not yet: {inPlace(target, tray)} of {target.length} blocks are in the right place
+          {decoysUsed ? `, and ${decoysUsed === 1 ? 'a decoy is' : `${decoysUsed} decoys are`} in your sentence` : ''}
+          {tray.length < target.length && decoysUsed === 0 ? ', and a block is missing' : ''}. One more try before the answer is shown.
+        </div>
+      )}
       {status === 'solved' && <div class="notice good">Correct{tries > 1 ? ' on the second try' : ''}.{elapsed > limit ? ' Over time, so partial credit.' : ''}</div>}
-      {status === 'revealed' && <div class="notice bad">Here's an accepted order.</div>}
-      {locked && <p style={{ marginTop: '12px', fontSize: '1.15rem' }}><em>{(status === 'solved' ? tray : drill.solutions?.[0] ?? []).map((id) => byId(id).text).join(' ')}</em></p>}
+      {status === 'revealed' && <div class="notice bad">Not this time. Your attempt is above (green: in place, red: out of place or a decoy). An accepted order:</div>}
+      {locked && <p style={{ marginTop: '12px', fontSize: '1.15rem' }}><em>{(status === 'solved' ? tray : target).map((id) => byId(id).text).join(' ')}</em></p>}
     </div>
   );
 }

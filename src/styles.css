@@ -242,3 +242,5 @@ label { display: block; font-size: 0.95rem; margin-bottom: 4px; }
 .howto summary { cursor: pointer; font-family: var(--mono); font-size: 0.75rem; color: var(--brass); }
 .howto p { margin: 6px 0 0; padding: 8px 12px; background: var(--panel-2); border-radius: var(--radius); }
 [id] { scroll-margin-top: 16px; }
+.tray .block.block-right { border-color: var(--good); background: var(--good-soft); }
+.tray .block.block-wrong { border-color: var(--bad); background: var(--bad-soft); }
